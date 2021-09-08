@@ -14,6 +14,7 @@ class Bj2562 {
 		int val = 0;
 		int count = 0;
 		int index = 0;
+		
 		String input = null;
 
 		while (true) {
