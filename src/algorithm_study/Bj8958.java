@@ -4,38 +4,43 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
-// Ã„Â¿Â¹Ã” Ã…Ã—Â½ÂºÃ†Â®
-// í ...
+// OX ÄûÁî
+// ÄÁµğ¼Ç ¾ÈÁÁ¾Æ¼­ ¸øÇ° ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ
 public class Bj8958 {
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int num = Integer.valueOf(br.readLine());
-		ArrayList<Character> arr = new ArrayList<Character>();
-		String test = null;
-		int count =0;
-		int sum = 0;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		 
+		StringBuilder sb = new StringBuilder();
+		int test_case = Integer.parseInt(br.readLine());	//Å×½ºÆ® ÄÉÀÌ½º
 		
-		for (int i = 0; i < num; i++) {
-			test = br.readLine();
-			for (int j = 0; j < test.length(); j++) {
-				arr.add(test.charAt(j));
-			}
-			count = 0;
-			sum = 0;
-			for(int a = 0; a< arr.size();a++){
-				
-				if(arr.get(a).equals('O')){
-					count++;
-					
-				}else{
-					count = 0;
-				}
-				sum = sum + count;
-			}
-			System.out.println(sum);
+		String arr[] = new String[test_case];
+ 
+		for (int i = 0; i < test_case; i++) {
+			arr[i] = br.readLine();
 		}
-		br.close();
+ 
+		
+		for (int i = 0; i < test_case; i++) {
+			
+			int cnt = 0;	// ¿¬¼ÓÈ½¼ö
+			int sum = 0;	// ´©Àû ÇÕ»ê 
+			
+			for (int j = 0; j < arr[i].length(); j++) {
+				
+				if (arr[i].charAt(j) == 'O') {
+					cnt++;
+				} else {
+					cnt = 0;
+				}
+				sum += cnt;
+			}
+			
+			sb.append(sum).append('\n');
+		}
+		
+		System.out.print(sb);
 	}
 }
