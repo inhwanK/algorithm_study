@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 // 평균은 넘겠지
 // 이번에는 제발...
+// 이래도 안돼?
 public class Bj4344 {
 	public static void main(String[] args) {
 		
