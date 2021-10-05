@@ -20,14 +20,18 @@ public class Bj4344 {
 		}
 
 		StringTokenizer st;
-
+		float sum = 0;
+		float avg = 0;
 		for (int i = 0; i < nList.length; i++) {
 			st = new StringTokenizer(nList[i], " ");
 			String nSub = st.nextToken();
-
+			
 			for (int j = 0; j < st.countTokens(); j++) {
-
+				sum += Integer.parseInt(st.nextToken());
 			}
+			
+			avg = sum / Integer.parseInt(nSub);
+			
 		}
 	}
 }
