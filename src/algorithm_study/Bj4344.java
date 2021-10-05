@@ -24,14 +24,24 @@ public class Bj4344 {
 		float avg = 0;
 		for (int i = 0; i < nList.length; i++) {
 			st = new StringTokenizer(nList[i], " ");
-			String nSub = st.nextToken();
-			
-			for (int j = 0; j < st.countTokens(); j++) {
-				sum += Integer.parseInt(st.nextToken());
+			int nSub = Integer.parseInt(st.nextToken());
+			int[] std = new int[nSub];
+
+			int score = 0;
+			for (int j = 0; j < nSub; j++) {
+				score = Integer.parseInt(st.nextToken());
+				std[j] = score;
+				sum += score;
 			}
-			
-			avg = sum / Integer.parseInt(nSub);
-			
+
+			avg = sum / nSub;
+			int count = 0;
+			for (int a = 0; a < nSub; a++) {
+				if (std[a] <= avg) {
+					count++;
+				}
+			}
+			System.out.println((count / nSub) * 100 + "%");
 		}
 	}
 }
