@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 평균은 넘겠지
+// �룊洹좎� �꽆寃좎�
 
 public class Bj4344 {
 	public static void main(String[] args) throws IOException {
@@ -24,10 +24,10 @@ public class Bj4344 {
 		float avg = 0;
 		for (int i = 0; i < nList.length; i++) {
 			st = new StringTokenizer(nList[i], " ");
-			int nSub = Integer.parseInt(st.nextToken());
-			int[] std = new int[nSub];
+			float nSub = Integer.parseInt(st.nextToken());
+			float[] std = new float[(int) nSub];
 
-			int score = 0;
+			float score = 0;
 			for (int j = 0; j < nSub; j++) {
 				score = Integer.parseInt(st.nextToken());
 				std[j] = score;
@@ -41,7 +41,8 @@ public class Bj4344 {
 					count++;
 				}
 			}
-			System.out.println((count / nSub) * 100 + "%");
+			float ans = (count / nSub) * 100f;
+			System.out.println(String.format("%.3f", ans)+"%");
 		}
 	}
 }
