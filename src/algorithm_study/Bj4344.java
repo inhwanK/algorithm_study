@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// �룊洹좎� �꽆寃좎�
+// 평균은 넘겠지
+// encoding 방식 바꿈.
 
 public class Bj4344 {
 	public static void main(String[] args) throws IOException {
