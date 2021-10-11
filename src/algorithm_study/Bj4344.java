@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 // 평균은 넘겠지
 // 안드로이드 ㅠㅠㅠㅠ
 // 배열 4 넘어가면 답이 틀려짐.
+// 왜또 안될까?
 public class Bj4344 {
 	public static void main(String[] args) throws IOException {
 
