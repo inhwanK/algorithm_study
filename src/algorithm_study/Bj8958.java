@@ -6,27 +6,26 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-// OX ÄûÁî
-// ÄÁµð¼Ç ¾ÈÁÁ¾Æ¼­ ¸øÇ° ¤Ð¤Ð¤Ð¤Ð¤Ð
+// OX ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½Ç° ï¿½Ð¤Ð¤Ð¤Ð¤ï¿½
 public class Bj8958 {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		 
 		StringBuilder sb = new StringBuilder();
-		int test_case = Integer.parseInt(br.readLine());	//Å×½ºÆ® ÄÉÀÌ½º
+		int test_case = Integer.parseInt(br.readLine());	//ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½Ì½ï¿½
 		
 		String arr[] = new String[test_case];
  
 		for (int i = 0; i < test_case; i++) {
 			arr[i] = br.readLine();
 		}
- 
 		
 		for (int i = 0; i < test_case; i++) {
 			
-			int cnt = 0;	// ¿¬¼ÓÈ½¼ö
-			int sum = 0;	// ´©Àû ÇÕ»ê 
+			int cnt = 0;	// ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½
+			int sum = 0;	// ï¿½ï¿½ï¿½ï¿½ ï¿½Õ»ï¿½ 
 			
 			for (int j = 0; j < arr[i].length(); j++) {
 				
@@ -49,12 +48,12 @@ public class Bj8958 {
  
 		StringBuilder sb = new StringBuilder();
  
-		int test_case = Integer.parseInt(br.readLine()); // Å×½ºÆ® ÄÉÀÌ½º
+		int test_case = Integer.parseInt(br.readLine()); // ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½Ì½ï¿½
  
 		for (int i = 0; i < test_case; i++) {
  
-			int cnt = 0; // ¿¬¼ÓÈ½¼ö
-			int sum = 0; // ´©Àû ÇÕ»ê
+			int cnt = 0; // ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½
+			int sum = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½Õ»ï¿½
  
 			for (byte value : br.readLine().getBytes()) {
 				
