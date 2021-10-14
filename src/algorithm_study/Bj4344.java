@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 // 안드로이드 ㅠㅠㅠㅠ
 // 배열 4 넘어가면 답이 틀려짐.
 // ohohohohohoho
+// gnldfnlsdknfs
 public class Bj4344 {
 	public static void main(String[] args) throws IOException {
 
