@@ -46,6 +46,7 @@ public class Bj4344 {
 			}
 			float ans = (count / nSub) * 100f;
 			System.out.println(String.format("%.3f", ans)+"%");
+			//뭐가 잘못된지 모르겠슴...
 		}
 	}
 }
