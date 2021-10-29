@@ -18,7 +18,7 @@ public class Camouflage {
 			answer *= clothEa.get(key) + 1;
 		}
 
-		// (종류별 개수 서로 곱한 값)+(전체 개수)
+		// map keySet
 
 		return answer - 1;
 	}
