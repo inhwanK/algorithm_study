@@ -15,6 +15,7 @@ public class Bj10818 {
 
 		int N = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
 		int[] arr = new int[N];
 
 		for (int i = 0; i < N; i++) {
