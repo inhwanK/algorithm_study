@@ -1,4 +1,4 @@
-package algorithm_study;
+package algorithm_study.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 public class Bj3052 {
 	public static void main(String[] args) throws IOException {
 		
-		// SetÀ» ÀÌ¿ëÇÑ Ç®ÀÌ.
+		// Setï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int value = 0;
 		
@@ -23,7 +23,7 @@ public class Bj3052 {
 		System.out.println(set.size());
 		
 		
-		/* Á¤·ÄÀ» ÀÌ¿ëÇÑ Ç®ÀÌ
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int[] input = new int[10];

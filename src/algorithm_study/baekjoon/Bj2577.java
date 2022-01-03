@@ -1,4 +1,4 @@
-package algorithm_study;
+package algorithm_study.baekjoon;
 
 import java.io.IOException;
 import java.util.HashMap;

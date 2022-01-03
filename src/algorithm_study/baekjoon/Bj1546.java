@@ -1,4 +1,4 @@
-package algorithm_study;
+package algorithm_study.baekjoon;
 
 import java.util.*;
 import java.io.*;
