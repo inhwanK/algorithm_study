@@ -19,35 +19,19 @@ public class Bj1065 {
 		int second;
 		int third;
 
-		Integer sub = 0;
 		int count = 0;
 
 		if (N < 100) {
 			result = N;
 		} else {
-			/*
-			for (int i = N + 1; i <= 1000; i++) {
 
-				third = i % 10;
-				second = ((i % 100) - third) / 10;
-				first = i / 100;
-
-				sub = first - second;
-				if (sub.compareTo(second - third) == 0) {
-					count++;
-				}
-			}
-
-			result = 144 - count;
-			*/
-			
 			for (int i = 100; i <= N; i++) {
 
 				third = i % 10;
 				second = ((i % 100) - third) / 10;
 				first = i / 100;
 
-//				sub = first - second;
+
 				if ((first - second) == (second - third)) {
 					count++;
 				}
@@ -56,9 +40,7 @@ public class Bj1065 {
 			result = 99 + count;
 
 		}
-
 		bw.write("" + result);
-//		bw.write("정답 > " + result);
 
 		br.close();
 		bw.close();

@@ -23,41 +23,42 @@ public class P110 {
 		int col = 1;
 		int row = 1;
 
-//		Map<String, Integer> mv = new HashMap<String, Integer>();
-//		mv.put("L", -1);
-//		mv.put("R", 1);
-//		mv.put("U", -1);
-//		mv.put("D", 1);
-
 		String move;
 
 		st = new StringTokenizer(br.readLine(), " ");
 		while (st.hasMoreTokens()) {
 			move = st.nextToken();
 
-			
-//			if (move == "L") {
-//				col--;
-//			} else if (move == "R") {
-//				col++;
-//			} else if (move == "U") {
-//				row--;
-//			} else if(move == "D"){
-//				row++;
-//			}
-//
-//			if (col < 1) {
-//				col = 1;
-//			} else if (col > N) {
-//				col = N;
-//			} else if (row < 1) {
-//				row = 1;
-//			} else if (row > N) {
-//				row = N;
-//			}
+			switch (move) {
+
+			case "L":
+				col--;
+				if(col < 1) {
+					col = 1;
+				}
+				break;
+			case "R":
+				col++;
+				if(col > N) {
+					col = N;
+				}
+				break;
+			case "U":
+				row--;
+				if(row < 1) {
+					row = 1;
+				}
+				break;
+			case "D":
+				row++;
+				if(row > N) {
+					row = N;
+				}
+				break;
+			}
 		}
 
-		bw.write(row + " "+ col);
+		bw.write(row + " " + col);
 		br.close();
 		bw.close();
 	}
