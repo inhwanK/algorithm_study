@@ -11,42 +11,32 @@ public class P113 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
+
 		String n = br.readLine();
 		int N = Integer.parseInt(n);
-		
+
+		String hour;
 		String min;
 		String sec;
 
 		int count = 0;
 
-		if(n.contains("3")) {
-			count++;
-		}else {
-			for (int i = 0; i < 60; i++) {
+		for (int h = 0; h <= N; h++) {
+			for (int m = 0; m < 60; m++) {
+				for (int s = 0; s < 60; s++) {
 
-				min = "" + i;
-				
-				if (min.contains("3")) {
-					count++;
-				} else {
-					for (int j = 0; j < 60; j++) {
-						sec = "" + j;
-						if(sec.contains("3")) {
-							count++;
-						}
-					}// for 문 끝
+					hour = h + "";
+					min = m + "";
+					sec = s + "";
+					if (hour.contains("3") || min.contains("3") || sec.contains("3")) {
+						count++;
+					}
+
 				}
-
-			}// for 문 끝
-
+			}
 		}
-		
-				
-		int result = N * count;
-		
-		
-		bw.write("" + result);
+
+		bw.write("" + count);
 
 		bw.close();
 		br.close();
