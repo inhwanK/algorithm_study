@@ -33,27 +33,39 @@ public class P118 {
 		int[] dy = { 0, 1, 0, -1 };
 		int[] dx = { -1, 0, 1, 0 };
 
-		int left = d - 1 < 0 ? 3 : d - 1;
-		int back = d - 2 < 0 ? (4 + d) - 2 : d - 2;
+		int left = 0;
+		int back = 0;
 
-		int dA = A + dy[left];
-		int dB = B + dx[left];
+		int dA = 0;
+		int dB = 0;
 
-		int count = 0;
+		int count = 1;
 		int nm = 0;
 
 		while (true) {
 
+			// 왼쪽과 뒤쪽 방향 계산.
+			left = d - 1 == -1 ? 3 : d - 1;
+			back = d - 2 < 0 ? (4 + d) - 2 : d - 2;
+
+			dA = A + dy[left];
+			dB = B + dx[left];
+
+			System.out.println(dA + "," + dB);
+
+//			왼쪽 방향 체크후
 			if (field[dA][dB] == 0) {
+
 				d = left;
 				A = dA;
 				B = dB;
 				field[A][B] = 2;
 				nm = 0;
 				count++;
+				System.out.println("count :" + count);
+
 			} else {
 				nm++;
-				System.out.println("되고 있는지 ...");
 				d = left;
 
 				if (nm == 4) {
@@ -66,11 +78,10 @@ public class P118 {
 					} else {
 						A = bA;
 						B = bB;
-						break;
 					}
 				}
 
-			}
+			} // end of else
 
 		}
 
