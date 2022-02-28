@@ -1,7 +1,6 @@
 package algorithm_study.tic.graphsearch;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class P149 {
 
