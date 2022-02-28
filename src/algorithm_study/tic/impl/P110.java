@@ -1,4 +1,4 @@
-package algorithm_study.hustar.impl;
+package algorithm_study.tic.impl;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package algorithm_study.hustar.greedy;
+package algorithm_study.tic.greedy;
 
 import java.util.Scanner;
 
