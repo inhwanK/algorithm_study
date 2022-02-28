@@ -5,44 +5,66 @@ import java.util.Stack;
 
 public class P149 {
 
+	static int[][] ice;
+	static int N, M;
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 
 		// 1 <= N, M <= 1000
-		int N, M;
-
 		N = sc.nextInt();
 		M = sc.nextInt();
 
-		int[][] ice = new int[N][M];
-
+		ice = new int[N][M];
+		String numberOfCell;
 		// 배열에 값 넣기
 		for (int n = 0; n < N; n++) {
+
+			numberOfCell = sc.next();
+
 			for (int m = 0; m < M; m++) {
-				ice[n][m] = sc.nextInt();
+				ice[n][m] = numberOfCell.charAt(m) - '0';
 			}
 		}
 
 		// 배열 확인
 		System.out.println("배열 함 볼까 > " + ice[0][1]);
 
-		// 스택이냐 큐냐
-		Stack<Integer> connIce = new Stack<Integer>();
+		int result = 0;
 
-		// 시작 요소 ice[0][0]
-		// 열 값을 우선으로 탐색
-		
 		// 배열 탐색
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
-				
-				if(ice[i][j] == 1) {
-//					ice[i][j] = 
+
+				if (isIceGroup(i, j)) {
+					result++;
 				}
-				
 			}
 		}
-		
+
+//		결과
+		System.out.println("group > " + result);
+	}
+
+	// 얼음 덩어리 확인 메서드
+	public static boolean isIceGroup(int row, int col) {
+
+		if (row >= N || row < 0 || col >= M || col < 0) {
+			return false;
+		}
+
+		if (ice[row][col] == 0) {
+			ice[row][col] = 1;
+
+			isIceGroup(row, col + 1);
+			isIceGroup(row + 1, col);
+			isIceGroup(row, col - 1);
+			isIceGroup(row - 1, col);
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
