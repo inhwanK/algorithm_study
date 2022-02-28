@@ -15,13 +15,14 @@ public class P149 {
 		// 1 <= N, M <= 1000
 		N = sc.nextInt();
 		M = sc.nextInt();
+		sc.nextLine(); // 버퍼 제거를 위함.
 
 		ice = new int[N][M];
 		String numberOfCell;
 		// 배열에 값 넣기
 		for (int n = 0; n < N; n++) {
 
-			numberOfCell = sc.next();
+			numberOfCell = sc.nextLine();
 
 			for (int m = 0; m < M; m++) {
 				ice[n][m] = numberOfCell.charAt(m) - '0';
@@ -32,7 +33,6 @@ public class P149 {
 		System.out.println("배열 함 볼까 > " + ice[0][1]);
 
 		int result = 0;
-
 		// 배열 탐색
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
@@ -63,8 +63,8 @@ public class P149 {
 			isIceGroup(row - 1, col);
 
 			return true;
-		} else {
-			return false;
 		}
+		return false;
+
 	}
 }
