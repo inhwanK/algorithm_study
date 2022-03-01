@@ -34,7 +34,7 @@ public class P152 {
 
 		System.out.println("답은? > " + result);
 	}
-
+	
 //	길찾기 메서드
 	public static int getDirections(int shortRoad, int n, int m) {
 
