@@ -29,8 +29,8 @@ public class P152 {
 
 		sc.close();
 
-		int shortRoad = 0;
-		int result = getDirections(shortRoad, 0, 0);
+		result = 1000001;
+		getDirections(0, 0, 0);
 
 		System.out.println("답은? > " + result);
 	}
@@ -38,20 +38,21 @@ public class P152 {
 //	길찾기 메서드
 	public static int getDirections(int shortRoad, int n, int m) {
 
-		int re = 1000001;
-
 		if (n == N - 1 && m == M - 1) {
-			if (shortRoad < re) {
-				re = shortRoad + 1;
+			if (shortRoad < result) {
+				result = shortRoad + 1;
 			}
-			return re;
+
+			System.out.println("shortRoad 변화 체크 > " + shortRoad);
+			System.out.println("result 변화 체크 > " + result);
+
+			return result;
 		}
 
 		if (n >= N || n < 0 || m >= M || m < 0) {
 			return 1000001;
 		}
 
-		
 		if (maze[n][m] == 1) {
 
 			shortRoad++;
@@ -61,19 +62,16 @@ public class P152 {
 			int roadCheck = shortRoad;
 
 			// 빠른길 먼저
-			int right = getDirections(shortRoad, n, m + 1);
-			int down = getDirections(shortRoad, n + 1, m);
+			getDirections(shortRoad, n, m + 1);
+			getDirections(shortRoad, n + 1, m);
 
 			if (shortRoad == roadCheck) {
-				int left = getDirections(shortRoad, n, m - 1);
-				int up = getDirections(shortRoad, n - 1, m);
+				getDirections(shortRoad, n, m - 1);
+				getDirections(shortRoad, n - 1, m);
 			}
 
-			System.out.println("if 문 결과 > " + shortRoad);
-
-		} else {
-			System.out.println("else 결과 > " + shortRoad);
 		}
-		
+
+		return shortRoad;
 	}
 }
