@@ -6,7 +6,7 @@ public class P152 {
 
 	private static int N, M;
 	private static int[][] maze;
-	private static int result = 0;
+	private static int result;
 
 	public static void main(String[] args) {
 
