@@ -37,6 +37,7 @@ public class BinarySearch {
         System.out.println("정답 > " + cableLength);
     }
 
+    // 현재 안쓰는 메서드임.
     public static int binarySearch(int[] arr, int key) {
         return -1;
     }
