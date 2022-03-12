@@ -10,17 +10,18 @@ public class BinarySearch {
         int min = 0;
         int max = arr[arr.length - 1];
 
-        int value;
         int cableLength = 0;
 
         // while 문 시작
         while (min < max) {
             int mid = min + (max - min) / 2;
 
-            value = 0;
+            int value = 0;
+            System.out.println("value 초기화 > " + value);
 
-            for (int i = 0; i < arr.length - 1; i++) {
+            for (int i = 0; i < arr.length; i++) {
                 value += arr[i] / mid;
+                System.out.println("value > " + value);
             }
 
             if (value == key) {
