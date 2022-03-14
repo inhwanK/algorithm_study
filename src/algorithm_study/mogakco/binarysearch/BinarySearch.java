@@ -1,4 +1,4 @@
-package algorithm_study.mogakco;
+package algorithm_study.mogakco.binarysearch;
 
 public class BinarySearch {
     public static void main(String[] args) {
