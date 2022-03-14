@@ -7,7 +7,6 @@ public class BubbleSortEx {
         for (int i = 0; i < arr.length; i++) { // 배열의 요소 개수 만큼 스캔 수행
 
             int temp = 0;
-
             // 요소 비교 후 정렬 수행
             for (int j = 0; j < arr.length - 1; j++) {
 
