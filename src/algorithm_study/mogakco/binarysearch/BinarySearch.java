@@ -5,7 +5,12 @@ public class BinarySearch {
         int[] arr = {215, 513, 712, 803};
         int key = 10;
 
-//        int cableLength = binarySearch(arr, key);
+        int cableLength = binarySearch(arr, key);
+
+        System.out.println("정답 > " + cableLength);
+    }
+
+    public static int binarySearch(int[] arr, int key) {
 
         int min = 0;
         int max = arr[arr.length - 1];
@@ -35,12 +40,7 @@ public class BinarySearch {
 
         }// while문 끝
 
-        System.out.println("정답 > " + cableLength);
-    }
-
-    // 현재 안쓰는 메서드임.
-    public static int binarySearch(int[] arr, int key) {
-        return -1;
+        return cableLength;
     }
 }
 
