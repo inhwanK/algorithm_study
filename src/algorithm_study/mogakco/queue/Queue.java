@@ -14,7 +14,7 @@ public class Queue {
     }
 
     boolean isFull() {
-        if (tail >= queSize - 1 && head == -1) {
+        if (tail == queSize - 1) {
             return true;
         }
 
@@ -32,17 +32,17 @@ public class Queue {
 
     void enqueue(int item) {
 
-        if (!isFull()) {
+        if (!this.isFull()) {
             tail = tail + 1;
             queue[tail] = item;
             System.out.println("삽입");
             return;
         }
-        System.out.println("큐가 꽉 차 있습니다. ");
+        System.out.println("큐에 더 이상 데이터를 넣을 수 없습니다.");
     }
 
     int dequeue() {
-        if (head != tail) {
+        if (!this.isEmpty()) {
             head++;
             System.out.println("추출");
             return queue[head];
