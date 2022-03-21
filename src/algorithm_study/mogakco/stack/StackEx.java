@@ -18,12 +18,31 @@ public class StackEx {
     }
 
     void push(int item) {
-        if (!isFull()) {
-            arr[top + 1] = item;
-            return;
-        } else {
+        if (isFull()) {
             System.out.println("스택이 가득 찼습니다.");
+        } else {
+            top = top + 1;
+            arr[top] = item;
+            System.out.println(arr[top] + "");
         }
+    }
+
+    boolean isEmpty() {
+        if (top < 0) {
+            return true;
+        }
+        return false;
+    }
+
+    Integer pop() {
+        if (isEmpty()) {
+            System.out.println("데이터가 없습니다.");
+        } else {
+            System.out.println("추출 값 : " + arr[top]);
+            return arr[top--];
+        }
+
+        return null;
     }
 
 }
@@ -37,6 +56,12 @@ class StackMain {
         stack.push(4);
         stack.push(1);
         stack.push(1);
+
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
         System.out.println();
     }
 }
