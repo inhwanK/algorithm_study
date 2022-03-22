@@ -5,7 +5,7 @@ import java.util.Stack;
 public class TreeSearch {
 
     public static void main(String[] args) {
-        Node root = initTree();
+        NodeEx root = initTree();
         preOrderSearch(root);
         System.out.println();
         inOrderSearch(root);
@@ -13,17 +13,17 @@ public class TreeSearch {
         postOrderSearch(root);
     }
 
-    public static Node initTree() {
-        Node root = new Node(1);
+    public static NodeEx initTree() {
+        NodeEx root = new NodeEx(1);
 
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
+        NodeEx node2 = new NodeEx(2);
+        NodeEx node3 = new NodeEx(3);
 
         root.left = node2;
         root.right = node3;
 
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
+        NodeEx node4 = new NodeEx(4);
+        NodeEx node5 = new NodeEx(5);
 
         node2.left = node4;
         node2.right = node5;
@@ -31,7 +31,7 @@ public class TreeSearch {
         return root;
     }
 
-    static void preOrderSearch(Node node) {
+    static void preOrderSearch(NodeEx node) {
 
         if (node == null) {
             return;
@@ -43,7 +43,7 @@ public class TreeSearch {
 
     }
 
-    static void inOrderSearch(Node node){
+    static void inOrderSearch(NodeEx node){
         if (node == null) {
             return;
         }
@@ -54,7 +54,7 @@ public class TreeSearch {
         inOrderSearch(node.right);
     }
 
-    static void postOrderSearch(Node node){
+    static void postOrderSearch(NodeEx node){
         if (node == null) {
             return;
         }
@@ -66,13 +66,13 @@ public class TreeSearch {
     }
 }
 
-class Node {
+class NodeEx {
 
     Object data;
-    Node left;
-    Node right;
+    NodeEx left;
+    NodeEx right;
 
-    public Node(Object data) {
+    public NodeEx(Object data) {
         this.data = data;
         this.left = null;
         this.right = null;
