@@ -62,6 +62,65 @@ public class BinarySearchTreeEx {
             } else {
                 insertNode(currentNode.right, data);
             }
+        }
+    }
+
+    public NodeEx getNextNode(NodeEx node) {
+
+        while (node.left != null) {
+            node = node.left;
+        }
+
+        return node;
+    }
+
+    public void delete(int data) {
+
+        if (root == null) {
+            System.out.println("노드가 존재하지 않습니다.");
+        } else {
+            deleteNode(null, root, data);
+        }
+    }
+
+    private void deleteNode(NodeEx parentNode, NodeEx currentNode, int data) {
+
+        if (currentNode == null) {
+            System.out.printf("트리에 %d가 존재하지 않습니다. \n", data);
+            return;
+        }
+
+        if (data < currentNode.data) {
+            deleteNode(currentNode, currentNode.left, data);
+        } else if (data > currentNode.data) {
+            deleteNode(currentNode, currentNode.right, data);
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+
+                if (data < parentNode.data) {
+                    parentNode.left = null;
+                } else {
+                    parentNode.right = null;
+                }
+
+            } else if (currentNode.left == null && currentNode.right != null) {
+                if (data < parentNode.data) {
+                    parentNode.left = currentNode.right;
+                } else {
+                    parentNode.right = currentNode.right;
+                }
+
+            } else if (currentNode.left != null && currentNode.right == null) {
+                if (data < parentNode.data) {
+                    parentNode.left = currentNode.left;
+                } else {
+                    parentNode.right = currentNode.left;
+                }
+            } else if (currentNode.left != null && currentNode.right != null) {
+                NodeEx nextNode = getNextNode(currentNode.right);
+                currentNode.data = nextNode.data;
+                deleteNode(currentNode, currentNode.right, nextNode.data);
+            }
 
         }
     }
@@ -81,6 +140,18 @@ class NodeEx {
 }
 
 class Main {
+
+    static void inOrder(NodeEx node){
+        if(node == null){
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.printf("%d ", node.data);
+        inOrder(node.right);
+        return;
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTreeEx bst = new BinarySearchTreeEx();
@@ -122,6 +193,9 @@ class Main {
 
         System.out.println(bst.root.right.right.data);
         System.out.println(bst.root.right.right.right.data);
+
+        bst.delete(7);
+        inOrder(bst.root);
 //        bst.search(bst.root, 11);
     }
 }
