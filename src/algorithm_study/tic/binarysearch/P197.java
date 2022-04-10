@@ -21,7 +21,7 @@ public class P197 {
             parts[i] = sc.nextInt();
         }
 
-        // 찾는 부품 배역 생성
+        // 찾는 부품 배열 생성
         int M = sc.nextInt();
         searchParts = new int[M];
 
