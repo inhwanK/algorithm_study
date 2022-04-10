@@ -28,8 +28,6 @@ public class P197 {
         for (int i = 0; i < M; i++) {
             searchParts[i] = sc.nextInt();
         }
-
-
 //        parts 정렬.
         Arrays.sort(parts);
 
@@ -63,8 +61,6 @@ public class P197 {
         } else if (parts[mid] > target) {
             binarySearch(target, start, mid - 1);
         }
-
-
     }
 
 }
