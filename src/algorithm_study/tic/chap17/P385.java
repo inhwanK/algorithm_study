@@ -20,7 +20,7 @@ import java.util.*;
 3 4 2
 5 2 4
 */
-public class P384 {
+public class P385 {
 
     static int n, m;
     static int[][] busArr = new int[101][101];
@@ -32,12 +32,6 @@ public class P384 {
         n = sc.nextInt();
         m = sc.nextInt();
 
-        PriorityQueue<Bus> busHeap = new PriorityQueue(new Bus());
-        for (int i = 1; i <= m; i++) {
-            Bus bus = new Bus(sc.nextInt(), sc.nextInt(), sc.nextInt());
-            busHeap.offer(bus);
-        }
-
         for (int i = 1; i <= n; i++) {
             Arrays.fill(busArr[i], INF);
         }
@@ -46,11 +40,17 @@ public class P384 {
             busArr[i][i] = 0;
         }
 
+        PriorityQueue<Bus> busHeap = new PriorityQueue(new Bus());
+        for (int i = 1; i <= m; i++) {
+            Bus bus = new Bus(sc.nextInt(), sc.nextInt(), sc.nextInt());
+            busHeap.offer(bus);
+        }
+
         for (int i = 0; i < m; i++) {
             Bus bus = busHeap.poll();
             busArr[bus.getA()][bus.getB()] = Math.min(busArr[bus.getA()][bus.getB()], bus.getCost());
         }
-        // 여기까지 맞아
+        // 힙을 쓰는 의미가 없음
 
         for (int k = 1; k <= n; k++) {
             for (int i = 1; i <= n; i++) {
