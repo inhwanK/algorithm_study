@@ -10,63 +10,52 @@ import java.util.*;
 1 3 1 5 2 2 4 1 5 0 2 3 0 6 1 2
 * */
 public class P375 {
+    static int t, n, m;
+    static int[][] arr = new int[20][20];
+    static int[][] dp = new int[20][20];
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int t = sc.nextInt();
+        t = sc.nextInt();
+        for (int tc = 0; tc < t; tc++) {
+            n = sc.nextInt();
+            m = sc.nextInt();
 
-        int count = 0;
-        while (count < t) {
-            int n = sc.nextInt();
-            int m = sc.nextInt();
-
-            int[][] arr = new int[n][m];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     arr[i][j] = sc.nextInt();
-                    System.out.println(arr[i][j]);
                 }
             }
 
-            for (int j = 1; j < n - 1; j++) {
-                for (int i = 0; i < m - 1; i++) {
-                    arr[i + 1][j] = Math.max(arr[i][j] + arr[i + 1][j], arr[i + 1][j]);
-                    arr[i + 1][j - 1] = Math.max(arr[i][j] + arr[i + 1][j - 1], arr[i + 1][j - 1]);
-                    arr[i + 1][j + 1] = Math.max(arr[i][j] + arr[i + 1][j + 1], arr[i + 1][j + 1]);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    dp[i][j] = arr[i][j];
                 }
             }
 
-            for (int i = 0; i < m - 1; i++) {
-                arr[i + 1][0] = Math.max(arr[i][0] + arr[i + 1][0], arr[i + 1][0]);
-                arr[i + 1][1] = Math.max(arr[i][0] + arr[i + 1][1], arr[i + 1][1]);
+            for (int j = 1; j < m; j++) {
+                for (int i = 0; i < n; i++) {
+                    int leftUp, leftDown, left;
+
+                    if (i == 0) leftUp = 0;
+                    else leftUp = dp[i - 1][j - 1];
+
+                    if (i == n - 1) leftDown = 0;
+                    else leftDown = dp[i + 1][j - 1];
+
+                    left = dp[i][j - 1];
+                    dp[i][j] = dp[i][j] + Math.max(leftDown, Math.max(leftUp, left));
+                }
             }
 
-            for (int i = 0; i < m - 1; i++) {
-                arr[i + 1][n - 1] = Math.max(arr[i][n - 1] + arr[i + 1][n - 1], arr[i + 1][n - 1]);
-                arr[i + 1][n - 2] = Math.max(arr[i][n - 1] + arr[i + 1][n - 2], arr[i + 1][n - 2]);
+            int result = 0;
+            for (int i = 0; i < n; i++) {
+                result = Math.max(result, dp[i][m - 1]);
             }
 
-            count++;
+            System.out.println(result);
+
         }
-    }
-
-    static int max(int up, int same, int down) {
-        int max = 0;
-
-        if (up > same) {
-            if (down > up) {
-                max = down;
-            } else {
-                max = up;
-            }
-        } else {
-            if (same > down) {
-                max = same;
-            } else {
-                max = down;
-            }
-        }
-
-        return max;
     }
 }
