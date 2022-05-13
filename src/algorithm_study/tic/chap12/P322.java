@@ -36,7 +36,7 @@ public class P322 {
             result += chars[i];
         }
 
-        result += numberSum + "";
+        if(numberSum > 0) result += numberSum + "";
 
         System.out.println(result);
 
