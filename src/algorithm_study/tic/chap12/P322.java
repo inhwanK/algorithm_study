@@ -21,8 +21,9 @@ public class P322 {
 
 
         for (int i = 0; i < charArr.length; i++) {
-            if (charArr[i] - '0' < 10 ) {
-                numberSum += charArr[i] - '0';
+            int ascii = charArr[i] - '0';
+            if (ascii < 10) {
+                numberSum += ascii;
             } else {
                 charString += charArr[i];
             }
