@@ -22,14 +22,32 @@ public class MapToListEx {
         testMap.put("strawberry", 5);
         testMap.put("melon", 3);
 
-        Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream();
-        List<Map.Entry<String, Integer>> list = streamMap.collect(Collectors.toList());
-        Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+//        Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream();
 
-        String[] answer = new String[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i).getKey();
+        List<String> list = new ArrayList<>();
+
+
+        Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream()
+                .sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+        streamMap.forEach(entry -> list.add(entry.getKey()));
+
+        String[] answer = list.toArray(new String[list.size()]);
+
+//        Stream<String> ansStream = Arrays.stream(answer).forEach(s -> System.out.println(s));
+        Arrays.stream(answer).forEach(s -> System.out.println(s));
+        for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
+//        answer = testMap.keySet().toArray(new String[0]);
+//        System.out.println(answer.toString());
+//
+//        List<Map.Entry<String, Integer>> list = streamMap.collect(Collectors.toList());
+//        Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+//
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            answer[i] = list.get(i).getKey();
+//            System.out.println(answer[i]);
+//        }
     }
 }
