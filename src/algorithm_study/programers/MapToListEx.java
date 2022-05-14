@@ -6,7 +6,9 @@ import java.util.stream.Stream;
 
 /**
  * Map 정렬 실습
- * <br> 참고 릳크 : https://codechacha.com/ko/java-sort-map
+ * <br> 참고 링크 :
+ * <br> https://codechacha.com/ko/java-sort-map
+ * <br> https://developer-talk.tistory.com/394
  */
 public class MapToListEx {
 
@@ -22,9 +24,12 @@ public class MapToListEx {
 
         Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream();
         List<Map.Entry<String, Integer>> list = streamMap.collect(Collectors.toList());
-        Collections.sort(list,(o1,o2) -> o2.getValue().compareTo(o1.getValue()));
+        Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
-        list.forEach(i -> System.out.println(i.getValue()));
-
+        String[] answer = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i).getKey();
+            System.out.println(answer[i]);
+        }
     }
 }
