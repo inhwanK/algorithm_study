@@ -1,9 +1,8 @@
 package algorithm_study.programers;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Map 정렬 실습
@@ -20,5 +19,12 @@ public class MapToListEx {
         testMap.put("pineapple", 4);
         testMap.put("strawberry", 5);
         testMap.put("melon", 3);
+
+        Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream();
+        List<Map.Entry<String, Integer>> list = streamMap.collect(Collectors.toList());
+        Collections.sort(list,(o1,o2) -> o2.getValue().compareTo(o1.getValue()));
+
+        list.forEach(i -> System.out.println(i.getValue()));
+
     }
 }
