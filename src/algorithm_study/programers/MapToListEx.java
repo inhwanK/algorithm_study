@@ -9,6 +9,7 @@ import java.util.stream.Stream;
  * <br> 참고 링크 :
  * <br> https://codechacha.com/ko/java-sort-map
  * <br> https://developer-talk.tistory.com/394
+ * <br> 배열과 리스트 변환 : https://hianna.tistory.com/551
  */
 public class MapToListEx {
 
@@ -29,15 +30,17 @@ public class MapToListEx {
 
         Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream()
                 .sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+
         streamMap.forEach(entry -> list.add(entry.getKey()));
 
-        String[] answer = list.toArray(new String[list.size()]);
+        String[] answer = list.toArray(new String[list.size()]); // 크기는 0도 가능
 
-//        Stream<String> ansStream = Arrays.stream(answer).forEach(s -> System.out.println(s));
         Arrays.stream(answer).forEach(s -> System.out.println(s));
+
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
+
 //        answer = testMap.keySet().toArray(new String[0]);
 //        System.out.println(answer.toString());
 //
