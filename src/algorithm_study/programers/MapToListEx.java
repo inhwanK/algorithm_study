@@ -31,6 +31,7 @@ public class MapToListEx {
         Stream<Map.Entry<String, Integer>> streamMap = testMap.entrySet().stream()
                 .sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
+
         streamMap.forEach(entry -> list.add(entry.getKey()));
 
         String[] answer = list.toArray(new String[list.size()]); // 크기는 0도 가능

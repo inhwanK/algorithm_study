@@ -1,4 +1,4 @@
-package algorithm_study.tic.graphsearch;
+package algorithm_study.tic.chap05;
 
 import java.util.Scanner;
 
