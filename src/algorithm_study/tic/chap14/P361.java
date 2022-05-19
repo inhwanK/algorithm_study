@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+// https://st-lab.tistory.com/243
 public class P361 {
     public int[] solution(int N, int[] stages) {
         int[] answer = {};
@@ -44,7 +45,7 @@ public class P361 {
 
 }
 
-class Stage {
+class Stage implements Comparable<Stage>{
 
     private int stageNum;
     private float ratio;
@@ -60,5 +61,10 @@ class Stage {
 
     public float getRatio() {
         return this.ratio;
+    }
+
+    @Override
+    public int compareTo(Stage o) {
+        return 0;
     }
 }

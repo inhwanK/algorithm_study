@@ -29,6 +29,8 @@ public class P360 {
         // 계수정렬을 한다고 치고,
 
         System.out.println("결과 > " + result);
+
+
     }
 
     public static int sum(int antena) {
