@@ -13,4 +13,4 @@
 [이것이 취업을 위한 코딩테스트다 with Python](https://github.com/ndb796/python-for-coding-test)
 
 ### Java 정리
-- [Comparator와 Comparble](https://st-lab.tistory.com/243) - 
+- [Comparator와 Comparble 그리고 문자열]() - 참고 자료 [https://st-lab.tistory.com/243](https://st-lab.tistory.com/243), [https://yuja-kong.tistory.com/172]() 
