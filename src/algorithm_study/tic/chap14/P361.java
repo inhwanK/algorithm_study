@@ -2,7 +2,6 @@ package algorithm_study.tic.chap14;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 // https://st-lab.tistory.com/243
@@ -45,10 +44,11 @@ public class P361 {
 
 }
 
-class Stage implements Comparable<Stage>{
+class Stage {
 
     private int stageNum;
     private float ratio;
+    String test;
 
     public Stage(int stageNum, float ratio) {
         this.stageNum = stageNum;
@@ -61,10 +61,5 @@ class Stage implements Comparable<Stage>{
 
     public float getRatio() {
         return this.ratio;
-    }
-
-    @Override
-    public int compareTo(Stage o) {
-        return 0;
     }
 }
