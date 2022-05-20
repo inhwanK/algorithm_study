@@ -48,7 +48,6 @@ class Stage {
 
     private int stageNum;
     private float ratio;
-    String test;
 
     public Stage(int stageNum, float ratio) {
         this.stageNum = stageNum;
