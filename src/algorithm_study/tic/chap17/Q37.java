@@ -20,7 +20,7 @@ import java.util.*;
 3 4 2
 5 2 4
 */
-public class P385 {
+public class Q37 {
 
     static int n, m;
     static int[][] busArr = new int[101][101];
