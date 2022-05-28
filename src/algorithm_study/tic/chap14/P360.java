@@ -6,40 +6,18 @@ import java.util.*;
 // 안테나
 public class P360 {
 
-    public static int n;
-    public static int[] house = new int[100000];
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        int result = 999999999;
-        n = sc.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        for (int i = 0; i < n; i++) {
-            house[arr[i]]++;
-        }
+        Arrays.sort(arr);
 
-        for (int i = 0; i < n; i++) {
-            result = Math.min(result, sum(arr[i]));
-        }
-        // 계수정렬을 한다고 치고,
-
-        System.out.println("결과 > " + result);
-
-
-    }
-
-    public static int sum(int antena) {
-        int sum = 0;
-
-        for (int i = 0; i < house.length; i++) {
-            sum += Math.abs(house[i] * (i - antena));
-        }
-
-        return sum;
+        // 중간값(median)을 출력
+        System.out.println(arr[(n - 1) / 2]);
     }
 }

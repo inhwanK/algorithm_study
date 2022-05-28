@@ -1,6 +1,5 @@
 package algorithm_study.tic.chap14;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 

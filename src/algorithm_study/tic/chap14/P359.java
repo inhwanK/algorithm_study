@@ -33,49 +33,29 @@ public class P359 {
             int english = sc.nextInt();
             int math = sc.nextInt();
 
-            Score score = new Score(name, korean, english, math);
-            scoreArr[i] = score;
+            scoreArr[i] = new Score(name, korean, english, math);
         }
 
         Arrays.sort(scoreArr);
 
         for (int i = 0; i < n; i++) {
-            System.out.println(scoreArr[i].getName());
+            System.out.println(scoreArr[i].name);
         }
     }
 }
 
 class Score implements Comparable<Score> {
 
-    private String name;
-    private int korean;
-    private int english;
-    private int math;
-
-    public Score() {
-    }
+    String name;
+    int korean;
+    int english;
+    int math;
 
     public Score(String name, int korean, int english, int math) {
         this.name = name;
         this.korean = korean;
         this.english = english;
         this.math = math;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getKorean() {
-        return korean;
-    }
-
-    public int getEnglish() {
-        return english;
-    }
-
-    public int getMath() {
-        return math;
     }
 
     @Override
