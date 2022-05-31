@@ -25,7 +25,7 @@ public class Q38 {
 
         int[][] arr = new int[n + 1][n + 1];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n + 1; i++) {
             Arrays.fill(arr[i], INF);
             arr[i][i] = 0;
         }
@@ -37,9 +37,13 @@ public class Q38 {
             arr[col][row] = 1;
         }
 
-        for (int i = 0; i < n + 1; i++) {
-            System.out.println(Arrays.toString(arr[i]));
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
         }
+        System.out.println();
 
         for (int k = 1; k < n + 1; k++) {
             for (int i = 1; i < n + 1; i++) {
@@ -49,8 +53,28 @@ public class Q38 {
             }
         }
 
-        for (int i = 0; i < n + 1; i++) {
-            System.out.println(Arrays.toString(arr[i]));
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
         }
+
+        int result = 0;
+        for (int i = 1; i < n + 1; i++) {
+            int count = 0;
+            for (int j = 1; j < n + 1; j++) {
+                if(arr[i][j] != INF || arr[j][i] != INF){
+                    count++;
+                }
+            }
+            if(count == m){
+                result++;
+            }
+        }
+
+        System.out.println();
+        System.out.println("result > " + result);
+
     }
 }
