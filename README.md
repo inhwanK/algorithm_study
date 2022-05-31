@@ -3,7 +3,7 @@
 자료구조/알고리즘 및 코딩테스트 대비 공부한 내용을 올리는 공간입니다.
 </pre>
 
-#### 블로그 - [환한 개발자](https://bool-flower.tistory.com)
+#### 블로그 포스팅 - [환한 개발자](https://bool-flower.tistory.com)
 - [Comparator와 Comparable](https://bool-flower.tistory.com/12)
 
 #### 참고 자료
