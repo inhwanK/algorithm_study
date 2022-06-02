@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Q06 {
+public class Q06_ans {
     public int solution(int[] food_times, long k){
         // 전체 음식을 먹는 시간보다 k가 크거나 같다면 -1
         long summary = 0;
@@ -46,30 +46,5 @@ public class Q06 {
             }
         });
         return result.get((int) ((k - summary) % length)).getIndex();
-    }
-}
-
-class Food implements Comparable<Food> {
-
-    private int time;
-    private int index;
-
-    public Food(int time, int index) {
-        this.time = time;
-        this.index = index;
-    }
-
-    public int getTime() {
-        return this.time;
-    }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-    // 시간이 짧은 것이 높은 우선순위를 가지도록 설정
-    @Override
-    public int compareTo(Food other) {
-        return Integer.compare(this.time, other.time);
     }
 }
