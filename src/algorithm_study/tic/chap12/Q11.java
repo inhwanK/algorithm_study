@@ -39,16 +39,19 @@ import java.util.*;
 13 L
  */
 public class Q11 {
+    static int n, k;
+    static int[][] board;
+
     public static void main(String[] args) {
         // 입력
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
+        n = sc.nextInt();
         sc.nextLine();
-        int k = sc.nextInt();
+        k = sc.nextInt();
 
         // 정사각 보드
-        int[][] board = new int[n][n];
+        board = new int[n][n];
         for (int i = 0; i < k; i++) {
             int y = sc.nextInt() - 1;
             int x = sc.nextInt() - 1;
@@ -73,23 +76,30 @@ public class Q11 {
         // 뱀 생성
         Queue<Body> snake = new LinkedList<>();
         snake.offer(new Body(y, x));
+        board[y][x] = 2;
 
         while (true) {
+
             // 방향 전환
             if (dirInfo.getOrDefault(time, null) != null) {
                 direction = turn(dirInfo.get(time), direction);
             }
+
             // 한 칸씩 이동
             y = y + dy[direction];
             x = x + dx[direction];
             // 벽에 닿진 않는지, 자기 몸에 닿진 않는지 검사
-            if (!check(y, x, n, snake)) break;
+            if (!check(y, x, snake)) break;
 
             snake.offer(new Body(y, x));
             // 사과가 있을 경우 꼬리가 늘어남
-            if (board[y][x] != 1) {
-                snake.poll();
+            if (board[y][x] == 0) {
+                Body tail = snake.poll();
+                board[tail.y][tail.x] = 0;
             }
+
+            board[y][x] = 2;
+
             time++; // 1초씩 증가
         }
 
@@ -97,27 +107,20 @@ public class Q11 {
     }
 
     //
-    static boolean check(int y, int x, int n, Queue<Body> snake) {
+    static boolean check(int y, int x, Queue<Body> snake) {
         if (y >= n || y < 0 || x >= n || x < 0) return false;
-
-        for (Body body : snake) {
-            if (body.y == y && body.x == x) return false;
-        }
+        if (board[y][x] == 2) return false;
         return true;
     }
 
     static int turn(char c, int direction) {
-        if (c == 'L') {
-            direction--;
-            if (direction < 0) direction = 3;
-        } else {
-            direction++;
-            if (direction > 3) direction = 0;
-        }
+        if (c == 'L') direction = (direction == 0) ? 3 : direction - 1;
+        else direction = (direction + 1) % 4;
         return direction;
     }
 }
 
+// 뱀의 몸
 class Body {
     int y;
     int x;
