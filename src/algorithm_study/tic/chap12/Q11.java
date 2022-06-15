@@ -79,12 +79,10 @@ public class Q11 {
         board[y][x] = 2;
 
         while (true) {
-
             // 방향 전환
             if (dirInfo.getOrDefault(time, null) != null) {
                 direction = turn(dirInfo.get(time), direction);
             }
-
             // 한 칸씩 이동
             y = y + dy[direction];
             x = x + dx[direction];
@@ -97,16 +95,13 @@ public class Q11 {
                 Body tail = snake.poll();
                 board[tail.y][tail.x] = 0;
             }
-
             board[y][x] = 2;
-
             time++; // 1초씩 증가
         }
 
         System.out.println(time + 1);
     }
 
-    //
     static boolean check(int y, int x, Queue<Body> snake) {
         if (y >= n || y < 0 || x >= n || x < 0) return false;
         if (board[y][x] == 2) return false;
