@@ -1,7 +1,7 @@
 package algorithm_study.tic.chap13;
 
 // 연구소
-public class P341 {
+public class Q16 {
 
     // 초기 맵 배열
     // 벽을 설치한 뒤의 맵 배열

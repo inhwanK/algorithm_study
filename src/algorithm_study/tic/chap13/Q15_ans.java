@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 // 특정 거리의 도시 찾기 풀이 (정답)
-public class P339_ans {
+public class Q15_ans {
     // 도시의 개수, 도로의 개수, 거리 정보, 출발 도시 번호
     public static int n, m, k, x;
     public static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();

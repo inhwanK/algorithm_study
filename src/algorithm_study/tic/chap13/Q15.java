@@ -3,7 +3,7 @@ package algorithm_study.tic.chap13;
 import java.util.*;
 
 // 특정 거리의 도시 찾기 풀이 (오답)
-public class P339 {
+public class Q15 {
 
     public static int n, m, k, x;
     public static Queue<Integer> cityQueue = new LinkedList<>();

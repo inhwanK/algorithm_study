@@ -2,7 +2,7 @@ package algorithm_study.tic.chap13;
 
 import java.util.Scanner;
 
-public class P341_ans {
+public class Q16_ans {
     public static int n, m, result = 0;
     public static int[][] arr = new int[8][8]; // 초기 맵 배열
     public static int[][] temp = new int[8][8]; // 벽을 설치한 뒤의 맵 배열
