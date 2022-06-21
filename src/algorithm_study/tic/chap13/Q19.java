@@ -21,7 +21,6 @@ import java.util.Scanner;
 */
 // 연산자 끼워 넣기
 public class Q19 {
-    static ArrayList<Operator> memo = new ArrayList<Operator>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -52,6 +51,7 @@ public class Q19 {
         }
 
 
+        ArrayList<Operator> memo = new ArrayList<Operator>();
         factorial(memo, operators, new String[n - 1], new boolean[n - 1], 0, n - 1);
 
 
@@ -73,20 +73,12 @@ public class Q19 {
             System.out.println("최댓값 계산 중 > " + max);
         }
 
-
-        // 재귀를 써야하나요?
-        // 첫 번째 방법, 그냥 반복문 존나 돌려서 최댓값, 최솟값 가져오기
-        // 조합 알고리즘이 필요한 거 같음.
-        // 생각해보니 조합 알고리즘이 재귀였던 것 같은데?
-
-        // 조합 구현한번 해봅시다 자.
-
         System.out.println(max);
         System.out.println(min);
     }
 
     // 메모이제이션 필요하지 않나?
-    public static void factorial(ArrayList<Operator> operList, ArrayList<String> operators, String[] out, boolean[] visited, int operatorNum, int r) {
+    public static void factorial(ArrayList<Operator> memo, ArrayList<String> operators, String[] out, boolean[] visited, int operatorNum, int r) {
         if (operatorNum == r) {
             Operator operator = new Operator();
             operator.setOperators(out);
@@ -103,7 +95,7 @@ public class Q19 {
             if (!visited[i]) {
                 visited[i] = true;
                 out[operatorNum] = operators.get(i);
-                factorial(operList, operators, out, visited, operatorNum + 1, r);
+                factorial(memo, operators, out, visited, operatorNum + 1, r);
                 visited[i] = false;
             }
         }
