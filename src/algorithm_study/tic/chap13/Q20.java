@@ -17,6 +17,7 @@ X X X X
 X X X X
 T T T X
 */
+// 이거 왜 틀려?
 // 감시피하기 - 정답이랑 코드 동일함
 public class Q20 {
     public static int n; // 복도의 크기
