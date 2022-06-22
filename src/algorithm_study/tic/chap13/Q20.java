@@ -1,7 +1,5 @@
 package algorithm_study.tic.chap13;
 
-import sun.security.util.ArrayUtil;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +17,7 @@ X X X X
 X X X X
 T T T X
 */
+// 감시피하기 - 정답이랑 코드 동일함
 public class Q20 {
     public static int n; // 복도의 크기
     public static char[][] board = new char[6][6]; // 복도 정보 (N x N)
@@ -151,6 +150,7 @@ class PositionCombination {
         this.result = new ArrayList<ArrayList<Position>>();
     }
 
+    // 위치 정보를 담은 리스트에서 여러개를 고르는 조합
     public void combination(ArrayList<Position> arr, int depth, int index, int target) {
         if (depth == r) {
             ArrayList<Position> temp = new ArrayList<>();
