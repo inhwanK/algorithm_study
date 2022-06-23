@@ -17,7 +17,6 @@ X X X X
 X X X X
 T T T X
 */
-// 이거 왜 틀려?
 // 감시피하기 - 정답이랑 코드 동일함
 public class Q20 {
     public static int n; // 복도의 크기
@@ -104,7 +103,7 @@ public class Q20 {
 
         // 오른쪽 방향으로 감시
         if (direction == 1) {
-            while (y < 0) {
+            while (y < n) {
                 if (board[x][y] == 'S') return true;
                 if (board[x][y] == 'O') return false;
 
@@ -121,7 +120,7 @@ public class Q20 {
         }
 
         if (direction == 3) {
-            while (x < 0) {
+            while (x < n) {
                 if (board[x][y] == 'S') return true;
                 if (board[x][y] == 'O') return false;
 
