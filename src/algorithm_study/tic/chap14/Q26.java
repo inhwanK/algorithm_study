@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 // 카드 정렬하기 (큐와 힙 공부 더하기)
-public class P363 {
+public class Q26 {
 
     static int N;
 

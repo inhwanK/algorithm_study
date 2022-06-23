@@ -2,7 +2,7 @@ package algorithm_study.tic.chap14;
 
 import java.util.*;
 
-public class P363_ans {
+public class Q26_ans {
 
     public static int n, result;
 

@@ -3,7 +3,7 @@ package algorithm_study.tic.chap15;
 import java.util.*;
 
 // 공유기 설치
-public class P369 {
+public class Q29 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 // https://st-lab.tistory.com/243
-public class P361 {
+// 실패율
+public class Q25 {
     public int[] solution(int N, int[] stages) {
         int[] answer = {};
 

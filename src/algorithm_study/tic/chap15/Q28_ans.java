@@ -2,7 +2,7 @@ package algorithm_study.tic.chap15;
 
 import java.util.Scanner;
 
-public class P368_ans {
+public class Q28_ans {
     // 이진 탐색 소스코드 구현(재귀 함수)
     public static int binarySearch(int[] arr, int start, int end) {
         if (start > end) return -1;

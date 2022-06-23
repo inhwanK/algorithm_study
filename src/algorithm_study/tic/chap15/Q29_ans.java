@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class P369_ans {
+public class Q29_ans {
     public static void main(String[] args) {
         //  집의 개수(N)와 공유기의 개수(C)를 입력받기
         Scanner sc = new Scanner(System.in);

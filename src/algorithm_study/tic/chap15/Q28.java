@@ -14,7 +14,7 @@ import java.util.Scanner;
 -15 -4 3 8 9 13 15
 * */
 // 고정점 찾기 (반복문 방식)
-public class P368 {
+public class Q28 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

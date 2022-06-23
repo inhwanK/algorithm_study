@@ -2,7 +2,7 @@ package algorithm_study.tic.chap15;
 
 import java.util.Scanner;
 
-public class P367_ans {
+public class Q27_ans {
     public static int lowerBound(int[] arr, int target, int start, int end) {
         while (start < end) {
             int mid = (start + end) / 2;

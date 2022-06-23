@@ -18,9 +18,8 @@ nsj 80 80 80
 Teawhan 50 60 90
  */
 
-
 // 국영수 문제 정답
-public class P359_ans {
+public class Q23_ans {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

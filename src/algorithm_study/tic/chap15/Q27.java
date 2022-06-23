@@ -4,7 +4,7 @@ import java.util.*;
 
 // 정렬된 배열에서 특정 수의 개수 구하기 풀이 코드
 // 순차 탐색을 쓰지 않고 구하기
-public class P367 {
+public class Q27 {
 
 
     public static void main(String[] args) {

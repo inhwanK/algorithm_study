@@ -3,7 +3,7 @@ package algorithm_study.tic.chap14;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class P361_ans {
+public class Q25_ans {
     public int[] solution(int N, int[] stages) {
         int[] answer = new int[N];
         ArrayList<Node> arrayList = new ArrayList<>();

@@ -4,7 +4,7 @@ import java.util.*;
 
 // 너무 어렵게 생각함 참나 ㅎㅎㅎㅎ
 // 안테나
-public class P360 {
+public class Q24 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

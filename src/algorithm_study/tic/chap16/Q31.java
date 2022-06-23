@@ -9,7 +9,7 @@ import java.util.*;
 4 4
 1 3 1 5 2 2 4 1 5 0 2 3 0 6 1 2
 * */
-public class P375 {
+public class Q31 {
     static int t, n, m;
     static int[][] arr = new int[20][20];
     static int[][] dp = new int[20][20];

@@ -19,7 +19,7 @@ Sanghyun 70 70 80
 nsj 80 80 80
 Teawhan 50 60 90
  */
-public class P359 {
+public class Q23 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

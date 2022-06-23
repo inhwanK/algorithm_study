@@ -3,7 +3,7 @@ package algorithm_study.tic.chap16;
 import java.util.Scanner;
 
 // 금광 정답
-public class P375_ans {
+public class Q31_ans {
     static int testCase, n, m;
     static int[][] arr = new int[20][20];
     static int[][] dp = new int[20][20];
