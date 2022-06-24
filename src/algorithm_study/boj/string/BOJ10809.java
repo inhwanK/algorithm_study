@@ -1,11 +1,11 @@
-package algorithm_study.baekjoon.string;
+package algorithm_study.boj.string;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BJ10809 {
+public class BOJ10809 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
@@ -31,7 +31,7 @@ public class BJ10809 {
 }
 
 // 1위 답
-class BJ10809Answer  {
+class BOJ10809Answer {
 
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub

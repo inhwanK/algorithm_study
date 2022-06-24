@@ -1,10 +1,8 @@
-package algorithm_study.baekjoon;
+package algorithm_study.boj;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 // OX ����
 // ����� �����Ƽ� ��ǰ �ФФФФ�
