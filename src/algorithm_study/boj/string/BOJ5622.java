@@ -23,9 +23,9 @@ public class BOJ5622 {
             }
             // P ~ S 까지
             else if (num < 'T') numbers[7]++;
-                // T ~ V 까지
+            // T ~ V 까지
             else if (num < 'W') numbers[8]++;
-                // W ~ Z 까지
+            // W ~ Z 까지
             else numbers[9]++;
         }
 
