@@ -21,9 +21,8 @@ public class BOJ2941 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String s = br.readLine();
-//        int n = s.length();
         for (int i = 0; i < arr.length; i++) {
-            s = s.replace(arr[i], "1");
+            s = s.replace(arr[i], "0");
         }
         System.out.println(s.length());
 
