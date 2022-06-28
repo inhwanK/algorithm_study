@@ -33,3 +33,33 @@ public class BOJ1316 {
         System.out.println(count);
     }
 }
+
+// 1위 정답 - https://www.acmicpc.net/source/10307828
+class BOJ1316Answer {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        while (T-- > 0) {
+            String str = br.readLine();
+            boolean[] ck = new boolean[26];
+            boolean group = true;
+            char old = str.charAt(0);
+            ck[old-97] = true;
+            for (int i = 1; i < str.length(); i++) {
+                char nw = str.charAt(i);
+                if (!ck[nw-97] && nw != old) {
+                    ck[nw-97] = true;
+                    old = str.charAt(i);
+                }
+                else if (ck[nw-97] && nw != old) {
+                    group = false;
+                    break;
+                }
+
+            }
+            if (group) cnt++;
+        }
+        System.out.println(cnt);
+    }
+}
