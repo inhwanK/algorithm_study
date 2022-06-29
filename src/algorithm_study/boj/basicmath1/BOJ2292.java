@@ -23,6 +23,7 @@ public class BOJ2292 {
     }
 }
 
+//1위 정답 - https://www.acmicpc.net/source/9097682
 class BOJ2292Answer {
 
     public static void main(String[] args) throws IOException {
