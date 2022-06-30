@@ -10,41 +10,60 @@ public class BOJ1193 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int x = Integer.parseInt(br.readLine());
 
-        // 머리가 안돌아가네
+        int pre = 0;
+        int sum = 1;
+        int count = 1;
+        while (x > sum) {
+            pre = sum;
+            sum += ++count;
+        }
+        x -= pre;
+        if (count % 2 == 0) {
+            System.out.println(x + "/" + (count - x + 1));
+        } else {
+            System.out.println((count - x + 1) + "/" + x);
+        }
     }
 }
 
-// https://st-lab.tistory.com/74
+
+// 1위 정답 - https://www.acmicpc.net/source/23506552
 class BOJ1193Answer {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int X = Integer.parseInt(br.readLine());
+        int sum = 0, i = 0;
+        String result = "";
 
-        int cross_count = 1, prev_count_sum = 0;
-
-        while (true) {
-            // 직전 대각선 누적합 + 해당 대각선 개수 이용한 범위 판별
-            if (X <= prev_count_sum + cross_count) {
-
-                if (cross_count % 2 == 1) {	// 대각선의 개수가 홀수라면
-                    // 분모가 큰 수부터 시작
-                    // 분모는 대각선 개수 - (X 번째 - 직전 대각선까지의 누적합 - 1)
-                    // 분자는 X 번째 - 직전 대각선까지의 누적합
-                    System.out.print((cross_count - (X - prev_count_sum - 1)) + "/" + (X - prev_count_sum));
-                    break;
-                }
-
-                else {	// 대각선의 개수가 짝수라면
-                    // 홀수일 때의 출력을 반대로
-                    System.out.print((X - prev_count_sum) + "/" + (cross_count - (X - prev_count_sum - 1)));
-                    break;
-                }
-
+        while(true) {
+            if(X <= sum) {
+                break;
             } else {
-                prev_count_sum += cross_count;
-                cross_count++;
+                i++; // 그룹숫자내 최고의 수
+                sum += i; // 계차수열 1, 3, 6, 10, 15, ...
             }
         }
+
+        int num = sum - X;
+        int Group = i+1;
+
+        // 그룹숫자가 짝수인 경우
+        if (Group % 2 == 0) {
+            if(num != 0) {
+                result = num+1 + "/" + (i-num);
+            } else {
+                result = 1 + "/" + i;
+            }
+            // 그룹숫자가 홀수인 경우
+        } else {
+            if(num != 0) {
+                result = i-num + "/" + (num+1);
+            } else {
+                result = i + "/" + 1;
+            }
+        }
+
+        System.out.print(result);
     }
 }
