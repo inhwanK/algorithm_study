@@ -23,8 +23,7 @@ public class BOJ2775 {
                 }
             }
         }
-
-
+        
         for (int i = 0; i < t; i++) {
             int k = Integer.parseInt(br.readLine());
             int n = Integer.parseInt(br.readLine());
@@ -32,8 +31,6 @@ public class BOJ2775 {
             if (n == 1) System.out.println(1);
             else System.out.println(board[k][n - 1]);
         }
-
-
     }
 }
 
