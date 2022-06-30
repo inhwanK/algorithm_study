@@ -43,15 +43,15 @@ class BOJ2775Answer {
     private static int[][] resident = new int[15][15];
     private static final String NEW_LINE = "\n";
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
         num();
 
         StringBuilder sb = new StringBuilder();
-        while(T-- > 0) {
-            int k =Integer.parseInt(br.readLine());
+        while (T-- > 0) {
+            int k = Integer.parseInt(br.readLine());
             int n = Integer.parseInt(br.readLine());
 
             sb.append(resident[k][n - 1]).append(NEW_LINE);
@@ -61,13 +61,13 @@ class BOJ2775Answer {
     }
 
     private static void num() {
-        for(int i = 0; i < 15; i++) {
+        for (int i = 0; i < 15; i++) {
             resident[i][0] = 1;
             resident[0][i] = i + 1;
         }
 
-        for(int i = 1; i < 15; i++) {
-            for(int j = 1; j < 15; j++) {
+        for (int i = 1; i < 15; i++) {
+            for (int j = 1; j < 15; j++) {
                 resident[i][j] = resident[i][j - 1] + resident[i - 1][j];
             }
         }
