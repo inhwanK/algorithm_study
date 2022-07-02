@@ -11,13 +11,13 @@ public class BOJ1978 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        int dec = 0;
+        int prime = 0;
         String[] arr = br.readLine().split(" ");
         for (int i = 0; i < arr.length; i++) {
             int num = Integer.parseInt(arr[i]);
-            if (check(num)) dec++;
+            if (check(num)) prime++;
         }
-        System.out.println(dec);
+        System.out.println(prime);
     }
 
     public static boolean check(int num) {
@@ -54,6 +54,7 @@ class BOJ1978Answer {
             for (int j = 2; j <= len; j++)
                 if (len % j == 0 && len != j)
                     continue first;
+
             count++;
         }
         System.out.println(count);
