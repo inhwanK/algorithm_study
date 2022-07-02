@@ -1,4 +1,4 @@
-package algorithm_study.boj.step1;
+package algorithm_study.boj.step01;
 
 // 1위 정답과 같음
 // 새싹 - https://www.acmicpc.net/problem/25083
