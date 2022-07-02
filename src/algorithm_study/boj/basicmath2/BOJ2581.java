@@ -32,7 +32,8 @@ public class BOJ2581 {
         else System.out.println(sum + "\n" + min);
     }
 
-    // 에라토스테네스의 체, p * q = N 일 경우 p와 q 둘 중하나는 반드시 N의 제곱근 이하이다.
+    // 소수 판별볍, p * q = N 일 경우, 즉 합성수일 경우 -> p와 q 둘 중하나는 반드시 N의 제곱근 이하이다.
+    // 에라토스테네스의 체, N 이하의 소수를 찾는 방법 : 2의 배수 제거, 3의 배수 제거, -> N의 제곱근까지 증가시키면서 반복
     public static boolean isPrime(int num) {
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) return false;
