@@ -14,9 +14,7 @@ public class BOJ1436 {
         int titleNum = 665;
         while (n > 0) {
             titleNum++;
-            // '6' 문자를 확인하기 위한 변수
-            String title = titleNum + "";
-            if (title.contains("666")) n--;
+            if (String.valueOf(titleNum).contains("666")) n--;
         }
         System.out.println(titleNum);
     }
