@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+// 참고 자료 - https://st-lab.tistory.com/106
 // 수 정렬하기 2 - https://www.acmicpc.net/problem/2751
 public class BOJ2751 {
     public static void main(String[] args) throws IOException {
