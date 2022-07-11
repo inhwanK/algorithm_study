@@ -40,7 +40,6 @@ public class BOJ18870 {
     }
 }
 
-// 퀵 소트를 이용한 문제 풀이
 class BOJ18870Quick {
     public static int[] arr;
     public static String[] result;
@@ -67,30 +66,6 @@ class BOJ18870Quick {
         result = new String[n];
 
 
-    }
-
-    public static void quick(int pivot, int left, int right, int length) {
-        if (length == 1) {
-            return;
-        }
-
-        while (left < right) {
-            if (arr[left] <= arr[pivot]) left++;
-            if (arr[right] > arr[pivot]) right--;
-            if (arr[left] > arr[pivot] && arr[right] < arr[pivot]) {
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-            }
-        }
-
-        int temp = arr[right];
-        arr[right] = arr[pivot];
-        arr[pivot] = temp;
-
-        quick(pivot, pivot + 1, right - 1, (right - 1) - pivot);
-        result[right] += arr[right] + " ";
-        quick(right + 1, right + 2, length - 1, length - (right + 1));
     }
 }
 
