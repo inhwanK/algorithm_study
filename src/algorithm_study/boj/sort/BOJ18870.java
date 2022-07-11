@@ -194,7 +194,7 @@ class BOJ18870Answer_2 {
         if (l >= r) return;
 
         int m = partition(list, l, r);
-        quickSort(list, l, m-1);
+        quickSort(list, l, m - 1);
         quickSort(list, m, r);
 
     }
@@ -202,7 +202,7 @@ class BOJ18870Answer_2 {
 
     private static int partition(int[] list, int l, int r) {
 
-        int p = list[(l+r)>>1];
+        int p = list[(l + r) >> 1];
 
         while (l <= r) {
 
@@ -223,11 +223,6 @@ class BOJ18870Answer_2 {
         list[b] = t;
     }
 
-
-    /**
-     * Input Process
-     * @see https://blog.naver.com/jihogrammer/222281999239
-     */
     private static int read() throws Exception {
 
         int c, N = System.in.read() - 48;
