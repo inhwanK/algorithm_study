@@ -21,14 +21,6 @@ public class BOJ17427 {
 
     // 어떤 수의 약수의 합을 구한 값 즉 f(x)
     public static int divisorSum(int x) {
-        int sum = 0;
-        for (int i = 1; i <= Math.sqrt(x); i++) {
-            if (x % i == 0) {
-                if (x / i == i) sum += i;
-                else sum += i + (x / i);
-            }
-
-        }
-        return sum;
+        return 0;
     }
 }
