@@ -36,7 +36,7 @@ class BOJ17427Answer {
     public static long yaksuSum(int a) {
         long sum = 0;
         for (int i = 1; i <= a; i++) {
-            sum += i * (a/i);
+            sum += i * (a / i);
         }
         return sum;
     }
