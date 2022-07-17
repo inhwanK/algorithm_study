@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 알고리즘 풀이 과정 블로그 - https://st-lab.tistory.com/154
 // 최대공약수와 최소공배수 - https://www.acmicpc.net/problem/2609
 public class BOJ2609 {
     public static void main(String[] args) throws IOException {
