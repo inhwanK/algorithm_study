@@ -28,6 +28,32 @@ public class BOJ6588 {
         return true;
     }
 }
+// 이게 훨씬 빠름
+class BOJ6588_2 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        boolean[] primeArr = new boolean[1000001];
+        for (int i = 2; i <= 1000; i++) {
+            for (int j = 2; j * i <= 1000000; j++) {
+                primeArr[i * j] = true;
+            }
+        }
+
+        int n = -1;
+        while ((n = Integer.parseInt(br.readLine())) != 0) {
+            sb.append(n);
+            for (int i = 3; i <= (n / 2); i += 2) {
+                if (!primeArr[i] && !primeArr[n - i]) {
+                    sb.append(" = ").append(i).append(" + ").append(n - i).append('\n');
+                    break;
+                }
+            }
+        }
+        System.out.println(sb);
+    }
+}
 
 // 상위 정답 - https://www.acmicpc.net/source/38721434
 class BOJ6588Answer {
