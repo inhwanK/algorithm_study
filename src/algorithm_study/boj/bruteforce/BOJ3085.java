@@ -32,7 +32,6 @@ public class BOJ3085 {
                         swap(i, j, nx, ny);
                         max = Math.max(max, countMaxValue());
                         swap(i, j, nx, ny);
-
                     }
                 }
             }
