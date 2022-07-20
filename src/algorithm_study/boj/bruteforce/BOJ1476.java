@@ -12,7 +12,6 @@ public class BOJ1476 {
         int s = Integer.parseInt(years[1]);
         int m = Integer.parseInt(years[2]);
 
-        long eTemp = e;
         long sTemp = e;
         long mTemp = e;
 
