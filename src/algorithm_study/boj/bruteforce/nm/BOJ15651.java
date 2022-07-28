@@ -20,11 +20,11 @@ public class BOJ15651 {
         sb = new StringBuilder();
 
         result = new char[m];
-        dupPermutation(0);
+        dupCombination(0);
         System.out.println(sb);
     }
 
-    public static void dupPermutation(int depth) {
+    public static void dupCombination(int depth) {
         if (depth == m) {
             for (int i = 0; i < m; i++) {
                 sb.append(result[i]).append(' ');
@@ -35,7 +35,7 @@ public class BOJ15651 {
 
         for (int i = 1; i <= n; i++) {
             result[depth] = (char) (i + '0');
-            dupPermutation(depth + 1);
+            dupCombination(depth + 1);
         }
     }
 }
