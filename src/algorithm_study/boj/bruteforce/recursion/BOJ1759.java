@@ -81,6 +81,7 @@ public class BOJ1759 {
     }
 }
 
+// 모음 자음 정보를 따로 넣음... int, byte 연결시킬 수 있어야 함.
 // 상위 정답 - https://www.acmicpc.net/source/36201184
 class BOJ1759Answer {
     static int N, M;
