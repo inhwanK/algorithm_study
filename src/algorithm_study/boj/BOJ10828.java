@@ -1,2 +1,4 @@
-package algorithm_study.boj;public class BOJ10828 {
+package algorithm_study.boj;
+
+public class BOJ10828 {
 }
