@@ -1,4 +1,4 @@
-package algorithm_study.boj.bruteforce.recursion;
+package algorithm_study.boj.recursion;
 
 import java.util.*;
 import java.io.*;
