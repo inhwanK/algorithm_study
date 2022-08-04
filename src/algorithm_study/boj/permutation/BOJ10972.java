@@ -5,49 +5,61 @@ import java.io.*;
 
 // 다음 순열 - https://www.acmicpc.net/problem/10972
 public class BOJ10972 {
-    static int n, arr[], temp[];
-    static boolean visited[];
-    static ArrayList<String> list;
-    static String result = "-1";
+    static int n, arr[];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         n = Integer.parseInt(br.readLine());
-        visited = new boolean[n];
+        String[] input = br.readLine().split(" ");
         arr = new int[n];
-        list = new ArrayList<String>();
-        String input = br.readLine();
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(input[i]);
+        }
 
-        permutation(0);
-
-        Collections.sort(list);
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i).equals(input)) {
-                result = list.get(i + 1);
+        int division = -1;
+        for (int i = n - 1; i > 0; i--) {
+            if (arr[i - 1] < arr[i]) {
+                division = i - 1;
                 break;
             }
         }
-        System.out.println(result);
-    }
 
-    static void permutation(int depth) {
-        if (depth == n) {
-            String comp = "";
-            for (int i = 0; i < n; i++) {
-                comp += temp[i] + " ";
-            }
-            list.add(comp);
-            return;
+        System.out.print(" > ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
         }
 
-        for (int i = 1; i <= n; i++) {
-            if (!visited[i]) {
-                temp[depth] = i;
-                visited[i] = true;
-                permutation(depth + 1);
-                visited[i] = false;
+        for (int i = n - 1; i > 0; i--) {
+            if (arr[division] < arr[i]) {
+                int swap = arr[i];
+                arr[i] = arr[division];
+                arr[division] = swap;
+                break;
             }
         }
+
+        System.out.print("\n");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        int left = division + 1;
+        int right = n - 1;
+
+        while (left < right) {
+            int swap = arr[left];
+            arr[left] = arr[right];
+            arr[right] = swap;
+
+            right--;
+            left++;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append(arr[i]).append(" ");
+        }
+        System.out.println(sb);
     }
 }
