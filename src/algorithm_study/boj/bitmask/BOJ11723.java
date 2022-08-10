@@ -1,4 +1,4 @@
-package algorithm_study.boj.set;
+package algorithm_study.boj.bitmask;
 
 import java.io.BufferedReader;
 import java.io.IOException;
