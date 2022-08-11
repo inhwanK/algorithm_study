@@ -30,7 +30,7 @@ public class BOJ1463 {
 }
 
 // 상위 정답 - https://www.acmicpc.net/source/11835772
-class Main {
+class BOJ1463Answer {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
