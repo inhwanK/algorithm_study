@@ -42,7 +42,10 @@ class Main {
         if (value == 1 || value == 0)
             return count;
         else {
+            // 2로 나눠지지 않더라도, 나머지 값을 count에 더하기 때문에 count를 구할 수 있음
             int cal2 = recursive(value / 2, count + 1 + (value % 2));
+            // 3로 나눠지지 않더라도, 나머지를 count에 더하기 때문에 count를 구할 수 있음
+            // 만약 나머지가 없다면, 나머지가 없는대로 구해지기 때문에 정상적인 count값을 구할 수 있음
             int cal3 = recursive(value / 3, count + 1 + (value % 3));
             return Math.min(cal2, cal3);
         }
