@@ -3,7 +3,7 @@ package algorithm_study.leetcode;
 import java.util.ArrayList;
 
 // Palindrome Number - https://leetcode.com/problems/palindrome-number/
-public class Leet9 {
+public class Leet_9 {
     public boolean isPalindrome(int x) {
         String input = String.valueOf(x);
         int size = input.length();
@@ -16,7 +16,7 @@ public class Leet9 {
     }
 }
 
-class Leet9FollowUp {
+class Leet_9FollowUp {
     public boolean isPalindrome(int x) {
         if (x < 0) return false;
         ArrayList<Integer> list = new ArrayList<>();
@@ -35,7 +35,7 @@ class Leet9FollowUp {
     }
 }
 
-class Leet9Answer {
+class Leet_9Answer {
     public boolean isPalindrome(int x) {
         // Special cases:
         // As discussed above, when x < 0, x is not a palindrome.
