@@ -13,6 +13,7 @@ public class Leet278 {
                 left = index + 1;
             }
         }
+        return -1;
     }
 
     public boolean isBadVersion(int n) {
