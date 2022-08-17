@@ -7,43 +7,43 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class BOJ1065 {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		String n = br.readLine();
-		int N = Integer.parseInt(n);
+        String n = br.readLine();
+        int N = Integer.parseInt(n);
 
-		int result;
-		int first;
-		int second;
-		int third;
+        int result;
+        int first;
+        int second;
+        int third;
 
-		int count = 0;
+        int count = 0;
 
-		if (N < 100) {
-			result = N;
-		} else {
+        if (N < 100) {
+            result = N;
+        } else {
 
-			for (int i = 100; i <= N; i++) {
+            for (int i = 100; i <= N; i++) {
 
-				third = i % 10;
-				second = ((i % 100) - third) / 10;
-				first = i / 100;
+                third = i % 10;
+                second = ((i % 100) - third) / 10;
+                first = i / 100;
 
 
-				if ((first - second) == (second - third)) {
-					count++;
-				}
-			}
+                if ((first - second) == (second - third)) {
+                    count++;
+                }
+            }
 
-			result = 99 + count;
+            result = 99 + count;
 
-		}
-		bw.write("" + result);
+        }
+        bw.write("" + result);
 
-		br.close();
-		bw.close();
-	}
+        br.close();
+        bw.close();
+    }
 
 }

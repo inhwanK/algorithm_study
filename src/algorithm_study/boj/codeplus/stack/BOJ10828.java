@@ -1,4 +1,4 @@
-package algorithm_study.boj.stack;
+package algorithm_study.boj.codeplus.stack;
 
 import java.io.BufferedReader;
 import java.io.IOException;
