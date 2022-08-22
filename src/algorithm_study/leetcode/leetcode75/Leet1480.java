@@ -1,4 +1,4 @@
-package algorithm_study.leetcode;
+package algorithm_study.leetcode.leetcode75;
 
 // Running Sum of 1d Array - https://leetcode.com/problems/running-sum-of-1d-array/
 public class Leet1480 {

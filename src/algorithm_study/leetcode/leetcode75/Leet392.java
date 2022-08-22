@@ -1,4 +1,4 @@
-package algorithm_study.leetcode;
+package algorithm_study.leetcode.leetcode75;
 
 import java.util.*;
 

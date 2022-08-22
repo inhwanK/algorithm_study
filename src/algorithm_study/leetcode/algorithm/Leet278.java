@@ -1,4 +1,4 @@
-package algorithm_study.leetcode;
+package algorithm_study.leetcode.algorithm;
 
 // 이분 탐색 자꾸 헷갈려서 안되겠음... 따로 책보고 다시 공부 필요...
 // First Bad Version - https://leetcode.com/problems/first-bad-version/

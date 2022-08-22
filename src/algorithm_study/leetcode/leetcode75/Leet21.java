@@ -1,4 +1,4 @@
-package algorithm_study.leetcode;
+package algorithm_study.leetcode.leetcode75;
 
 // 정답이긴해... 헷갈려서 문제...
 // Merge Two Sorted Lists - https://leetcode.com/problems/merge-two-sorted-lists/

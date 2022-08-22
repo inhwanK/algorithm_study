@@ -1,4 +1,4 @@
-package algorithm_study.leetcode;
+package algorithm_study.leetcode.algorithm;
 
 // Binary Search - https://leetcode.com/problems/binary-search/
 public class Leet704 {
