@@ -40,7 +40,7 @@ public class BOJ11053 {
 }
 
 // 상위 정답 - https://www.acmicpc.net/source/4467206
-class Main {
+class BOJ11053Answer {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
