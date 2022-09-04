@@ -40,6 +40,7 @@ public class BOJ2156 {
     }
 }
 
+// 상위 정답 - https://www.acmicpc.net/source/10978571
 class BOJ2156Answer_1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
