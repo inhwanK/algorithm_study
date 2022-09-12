@@ -1,4 +1,4 @@
-package algorithm_study.boj.step;
+package algorithm_study.boj.step.deque;
 
 import java.io.BufferedReader;
 import java.io.IOException;
