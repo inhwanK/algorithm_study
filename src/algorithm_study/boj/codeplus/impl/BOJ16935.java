@@ -1,7 +1,8 @@
 package algorithm_study.boj.codeplus.impl;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 // 배열 돌리기 3 - https://www.acmicpc.net/problem/16935
 public class BOJ16935 {
@@ -24,10 +25,13 @@ public class BOJ16935 {
             }
         }
 
-        int num = Integer.parseInt(br.readLine());
-
+        String[] nums = br.readLine().split(" ");
+        int[] numArr = new int[r];
+        for(int i = 0; i < r; i++) {
+            numArr[i] = Integer.parseInt(nums[i]);
+        }
         for (int i = 0; i < r; i++) {
-            switch (num) {
+            switch (numArr[i]) {
                 case (1):
                     one();
                     break;
@@ -50,27 +54,28 @@ public class BOJ16935 {
         }
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-
+                System.out.print(arr[i][j] + " ");
             }
+            System.out.println();
         }
     }
 
     public static void one() {
-        int[][] temp = new int[n][m];
+        int[][] temp = new int[arr.length][arr[0].length];
 
-        for (int i = 0; i < n; i++) {
-            temp[i] = arr[n - i - 1];
+        for (int i = 0; i < arr.length; i++) {
+            temp[i] = arr[arr.length - i - 1];
         }
 
         arr = temp;
     }
 
     public static void two() {
-        int[][] temp = new int[n][m];
+        int[][] temp = new int[arr.length][arr[0].length];
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                temp[i][j] = arr[i][m - j - 1];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                temp[i][j] = arr[i][arr[0].length - j - 1];
             }
         }
 
@@ -78,11 +83,11 @@ public class BOJ16935 {
     }
 
     public static void three() {
-        int[][] temp = new int[m][n];
+        int[][] temp = new int[arr[0].length][arr.length];
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                temp[i][j] = arr[n - j - 1][i];
+        for (int i = 0; i < arr[0].length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                temp[i][j] = arr[arr.length - j - 1][i];
             }
         }
 
@@ -90,11 +95,11 @@ public class BOJ16935 {
     }
 
     public static void four() {
-        int[][] temp = new int[m][n];
+        int[][] temp = new int[arr[0].length][arr.length];
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                temp[i][j] = arr[j][m - i - 1];
+        for (int i = 0; i < arr[0].length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                temp[i][j] = arr[j][arr[0].length - i - 1];
             }
         }
 
@@ -102,29 +107,31 @@ public class BOJ16935 {
     }
 
     public static void five() {
-        int[][] temp = new int[n][m];
+        int x = arr.length;
+        int y = arr[0].length;
+        int[][] temp = new int[x][y];
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i][j + m / 2] = arr[i][j];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i][j + y / 2] = arr[i][j];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i + n / 2][j + m / 2] = arr[i][j + m / 2];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i + x / 2][j + y / 2] = arr[i][j + y / 2];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i + n / 2][j] = arr[i + n / 2][j + m / 2];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i + x / 2][j] = arr[i + x / 2][j + y / 2];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i][j] = arr[i + n / 2][j];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i][j] = arr[i + x / 2][j];
             }
         }
 
@@ -132,29 +139,32 @@ public class BOJ16935 {
     }
 
     public static void six() {
-        int[][] temp = new int[n][m];
+        int x = arr.length;
+        int y = arr[0].length;
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i][j] = arr[i][j + m / 2];
+        int[][] temp = new int[x][y];
+
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i][j] = arr[i][j + y / 2];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i + n / 2][j] = arr[i][j];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i + x / 2][j] = arr[i][j];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i + n / 2][j + m / 2] = arr[i + n / 2][j];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i + x / 2][j + y / 2] = arr[i + x / 2][j];
             }
         }
 
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = 0; j < m / 2; j++) {
-                temp[i][j + m / 2] = arr[i + n / 2][j + m / 2];
+        for (int i = 0; i < x / 2; i++) {
+            for (int j = 0; j < y / 2; j++) {
+                temp[i][j + y / 2] = arr[i + x / 2][j + y / 2];
             }
         }
 
