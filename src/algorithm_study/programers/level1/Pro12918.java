@@ -34,4 +34,9 @@ public class Pro12918 {
         } else return false;
     }
 
+    // 정규표현식 사용 풀이
+    public boolean solution_2(String s) {
+        if (s.length() == 4 || s.length() == 6) return s.matches("(^[0-9]*$)");
+        return false;
+    }
 }
