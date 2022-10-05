@@ -3,50 +3,91 @@ package algorithm_study.programers.level1;
 // 신규 아이디 추천 - https://school.programmers.co.kr/learn/courses/30/lessons/72410
 public class Pro72410 {
     public String solution(String new_id) {
-        String answer = "";
-        char[] arr = new_id.toLowerCase().toCharArray();
+        String answer;
 
-        for (int i = 0; i < arr.length; i++) {
-            char c = arr[i];
-            if (c == '_' || c == '-' || c == '.') {
-                continue;
-            }
+        // 1단계
+        String step1 = new_id.toLowerCase();
 
-            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
-                continue;
-            }
-
-            arr[i] = 0;
-        }
-
-        answer = new String(arr);
-        answer = answer.replace("...", ".").replace("..", ".");
-
-        if (answer.startsWith("."))
-            answer = answer.substring(1);
-
-        if (answer.endsWith("."))
-            answer = answer.substring(0, answer.length() - 2);
-
-
-        if (answer.equals(""))
-            answer = "a";
-
-
-        if (answer.length() >= 16) {
-            answer = answer.substring(0, 16);
-            if (answer.endsWith(".")) {
-                answer = answer.substring(0, answer.length() - 2);
+        // 2단계
+        char[] step1_arr = step1.toCharArray();
+        StringBuilder step2 = new StringBuilder();
+        for (char c : step1_arr) {
+            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '-' || c == '_' || c == '.') {
+                step2.append(c);
             }
         }
 
-
-        while (new_id.length() <= 3) {
-            answer += answer.charAt(new_id.length() - 1);
+        // 3단계
+        String step3 = step2.toString().replace("..", ".");
+        while (step3.contains("..")) {
+            step3 = step3.replace("..", ".");
         }
 
-        System.out.println(answer);
+        // 4단계
+        String step4 = step3;
+        if (step4.length() > 0) {
+            if (step4.charAt(0) == '.') {
+                step4 = step4.substring(1, step4.length());
+            }
+        }
+        if (step4.length() > 0) {
+            if (step4.charAt(step4.length() - 1) == '.') {
+                step4 = step4.substring(0, step4.length() - 1);
+            }
+        }
 
-        return new_id;
+        // 5단계
+        String step5 = step4;
+        if (step5.equals("")) {
+            step5 = "a";
+        }
+
+        // 6단계
+        String step6 = step5;
+        if (step6.length() >= 16) {
+            step6 = step6.substring(0, 15);
+
+            if (step6.charAt(step6.length() - 1) == '.') {
+                step6 = step6.substring(0, step6.length() - 1);
+            }
+        }
+
+        // 7단계
+        StringBuilder step7 = new StringBuilder(step6);
+        if (step7.length() <= 2) {
+            char last = step7.charAt(step7.length() - 1);
+
+            while (step7.length() < 3) {
+                step7.append(last);
+            }
+        }
+
+        answer = String.valueOf(step7);
+        return answer;
+    }
+
+    public String solution_answer(String new_id) {
+        String answer = new_id.toLowerCase(); // 1단계
+
+        answer = answer.replaceAll("[^-_.a-z0-9]", ""); // 2단계
+        answer = answer.replaceAll("[.]{2,}", "."); // 3단계
+        answer = answer.replaceAll("^[.]|[.]$", "");    // 4단계
+
+        if (answer.equals("")) {    // 5단계
+            answer += "a";
+        }
+
+        if (answer.length() >= 16) {     // 6단계
+            answer = answer.substring(0, 15);
+            answer = answer.replaceAll("[.]$","");
+        }
+
+        if (answer.length() <= 2) {  // 7단계
+            while (answer.length() < 3) {
+                answer += answer.charAt(answer.length()-1);
+            }
+        }
+
+        return answer;
     }
 }
