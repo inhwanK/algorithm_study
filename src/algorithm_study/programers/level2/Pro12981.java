@@ -14,7 +14,7 @@ public class Pro12981 {
         }
 
         int person = 0;
-        String pre = words[0].charAt(0) + "";
+        String pre = String.valueOf(words[0].charAt(0));
         for (int i = 0; i < words.length; i++) {
             if (!set.contains(words[i]) || !words[i].startsWith(pre)) {
                 answer[0] = person + 1;
@@ -23,7 +23,7 @@ public class Pro12981 {
             }
 
             set.remove(words[i]);
-            pre = words[i].charAt(words[i].length() - 1) + "";
+            pre = String.valueOf(words[i].charAt(words[i].length() - 1));
             person = ++person % n;
         }
 
