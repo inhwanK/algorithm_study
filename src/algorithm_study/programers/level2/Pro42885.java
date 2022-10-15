@@ -8,27 +8,26 @@ public class Pro42885 {
         int answer = 0;
         Arrays.sort(people);
 
-        int sum = 0;
-        int count = 0;
-        for (int i = 0; i < people.length; i++) {
-            sum += people[i];
-            count++;
-            if (sum > limit) {
-                sum = people[i];
+        int index = 0;
+        for (int i = people.length - 1; i >= index; i--) {
+            if (people[i] + people[index] <= limit) {
                 answer++;
-                count = 1;
-            }
-
-            if (count == 2) {
-                sum = 0;
-                count = 0;
+                index++;
+            } else {
                 answer++;
             }
         }
 
-        if (sum > 0) {
-            answer++;
-        }
         return answer;
+    }
+
+    public int solution_answer(int[] people, int limit) {
+        Arrays.sort(people);
+        int i = 0, j = people.length - 1;
+        for (; i < j; --j) {
+            if (people[i] + people[j] <= limit)
+                ++i;
+        }
+        return people.length - i;
     }
 }
