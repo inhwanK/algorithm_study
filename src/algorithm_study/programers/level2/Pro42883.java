@@ -4,6 +4,10 @@ import java.util.Stack;
 
 // 큰 수 만들기 - https://school.programmers.co.kr/learn/courses/30/lessons/42883
 public class Pro42883 {
+    public static void main(String[] args) {
+        answer_1("1924", 2);
+    }
+
     public String solution(String number, int k) {
         String answer = "";
 
@@ -32,15 +36,16 @@ public class Pro42883 {
         return answer;
     }
 
-    public String answer_1(String number, int k) {
+    public static String answer_1(String number, int k) {
         char[] result = new char[number.length() - k];
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < number.length(); i++) {
             char c = number.charAt(i);
             while (!stack.isEmpty() && stack.peek() < c && k-- > 0) {
-                stack.pop();
+                System.out.println(stack.pop());
             }
+            System.out.println(c);
             stack.push(c);
         }
         for (int i = 0; i < result.length; i++) {
