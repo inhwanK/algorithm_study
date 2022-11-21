@@ -46,7 +46,7 @@ public class Pro43163 {
     }
 }
 
-
+// Queue를 이용한 BFS 풀이 법 예외 처리를 안해줘도 되네?
 class Pro43163Answer {
 
     static class Node {
