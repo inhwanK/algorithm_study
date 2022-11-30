@@ -7,10 +7,12 @@
 - [Comparator와 Comparable](https://bool-flower.tistory.com/12)
 
 #### 패키지 분류
-* [백준 풀이 코드 모음](https://github.com/inhwanK/algorithm_study/tree/master/src/algorithm_study/baekjoon)
-* [프로그래머스 풀이 코드 모음](https://github.com/inhwanK/algorithm_study/tree/master/src/algorithm_study/programers)
-* [이것이 취업을 위한 코딩테스트다 풀이 코드 모음](https://github.com/inhwanK/algorithm_study/tree/master/src/algorithm_study/tic)
-* [모각코 코딩테스트 - Level 1 (2022년 3월 과정)](https://github.com/inhwanK/algorithm_study/tree/master/src/algorithm_study/mogakco)
+- [백준 풀이 코드 모음](src/algorithm_study/boj)
+- [프로그래머스 풀이 코드 모음](src/algorithm_study/programers)
+- [리트코드 풀이 코드 모음](src/algorithm_study/leetcode)
+- [이것이 취업을 위한 코딩테스트다 풀이 코드 모음](src/algorithm_study/tic)
+- [모각코 코딩테스트 - Level 1 (2022년 3월 과정)](src/algorithm_study/mogakco)
+
 
 <br>
 
