@@ -28,7 +28,8 @@
 
 `ArrayList`는 `add(E e)`메서드를 통해 요소를 추가한다. 해당 로직을 찾기위해 `add(E e)`가 추가된 가장 상위 계층부터 살펴봤다.
  
-<img src="ArrayList Diagram.png" width="700">
+<img src="img/ArrayList Diagram.png" width="700">
+
 
 
 `Collection`인터페이스부터 `add(E e)` 메서드가 추가된다. `Collection`을 자식들은 모두 `add(E e)` 메서드를 가져야 한다는 건데  
