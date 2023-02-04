@@ -3,7 +3,6 @@ package algorithm_study.exam;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 // 2. 사용하지 않는 가장 작은 숫자 찾기
 public class MinNumber {
