@@ -30,6 +30,6 @@ public class MinNumber {
                 return i;
             }
         }
-        return -1;
+        return cArr.length;
     }
 }
