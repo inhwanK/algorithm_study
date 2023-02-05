@@ -10,5 +10,12 @@ public class LineBreaker {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String input = br.readLine();
+        int n = input.length();
+
+        for(int i = 0; i < input.length(); i++) {
+
+        }
+
+        System.out.println();
     }
 }
