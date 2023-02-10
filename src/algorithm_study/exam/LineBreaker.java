@@ -3,6 +3,7 @@ package algorithm_study.exam;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Pattern;
 
 // 4. 자동 줄바꿈 프로그램
 public class LineBreaker {
@@ -12,10 +13,39 @@ public class LineBreaker {
         String input = br.readLine();
         int n = input.length();
 
-        for(int i = 0; i < input.length(); i++) {
+        char[] chArr = input.toCharArray();
+        int len = 0;
+        String result = "";
+        for (int i = 0; i < n; i++) {
+            if(len == 0 && chArr[i] == ' ') {
+                continue;
+            }
 
+            if (len == 80) {
+                System.out.println(result);
+                len = 0;
+                result = "";
+                continue;
+            }
+
+            if (getHan(chArr[i]) && len >= 79) {
+                System.out.println(result);
+                len = 0;
+                result = "";
+            }
+
+            if (getHan(chArr[i])) {
+                len += 2;
+            } else {
+                len++;
+            }
+
+            result += chArr[i];
         }
+        System.out.println(result);
+    }
 
-        System.out.println();
+    private static boolean getHan(Character c) {
+        return Pattern.matches("^[가-힣]", String.valueOf(c));
     }
 }
