@@ -1,7 +1,5 @@
 package algorithm_study.mogakco.binarysearchtree;
 
-import javax.xml.soap.Node;
-
 public class BinarySearchTreeEx {
 
     NodeEx root;
