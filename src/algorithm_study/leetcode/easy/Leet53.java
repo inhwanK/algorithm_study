@@ -1,4 +1,4 @@
-package algorithm_study.leetcode.datastructure;
+package algorithm_study.leetcode.easy;
 
 // Maximum Subarray - https://leetcode.com/problems/maximum-subarray/?envType=study-plan&id=data-structure-i
 public class Leet53 {
