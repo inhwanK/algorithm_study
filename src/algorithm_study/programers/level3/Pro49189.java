@@ -14,9 +14,6 @@ public class Pro49189 {
             map.put(edge[i][0], map.getOrDefault(edge[i][0], new ArrayList()));
             map.put(edge[i][1], map.getOrDefault(edge[i][1], new ArrayList()));
 
-            set.add(edge[i][0]);
-            set.add(edge[i][1]);
-
             if (!map.get(edge[i][0]).contains(edge[i][1])) {
                 map.get(edge[i][0]).add(edge[i][1]);
             }
