@@ -1,5 +1,8 @@
 package algorithm_study.programers.level2;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // 거리두기 확인하기 - https://school.programmers.co.kr/learn/courses/30/lessons/81302
 public class Pro81302 {
     public int[] solution(String[][] places) {
