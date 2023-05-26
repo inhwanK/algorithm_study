@@ -15,7 +15,7 @@ public class Leet15 {
             while(left < right) {
                 int target = nums[i] + nums[left];
                 if(target + nums[right] == 0) {
-                    set.add(List.of(nums[i], nums[left], nums[right]));
+                    set.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     left++;
                     right--;
                 } else if(target + nums[right] < 0) {
