@@ -3,7 +3,6 @@ package algorithm_study.boj.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -23,7 +22,6 @@ public class BOJ14226 {
 
         while (!que.isEmpty()) {
             Emoji now = que.poll();
-            System.out.println("now > " + now);
             if (now.number == s) {
                 System.out.println(now.count);
                 break;
@@ -70,9 +68,5 @@ class Emoji {
             return false;
         }
         return true;
-    }
-
-    public String toString() {
-        return number + " - " + count + " - " + memo;
     }
 }
