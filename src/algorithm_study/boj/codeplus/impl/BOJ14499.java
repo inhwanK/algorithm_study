@@ -23,6 +23,68 @@ public class BOJ14499 {
             }
         }
 
+        Dice curDice = new Dice(0, 1, 2, 3, 4, 5);
+        int[] dice = new int[6];
 
+        int[] dx = {0, 0, -1, 1};
+        int[] dy = {1, -1, 0, 0};
+
+        String[] move = br.readLine().split(" ");
+        for (int i = 0; i < k; i++) {
+            int dir = Integer.parseInt(move[i]) - 1;
+
+            int t = curDice.top;
+            int u = curDice.up;
+            int d = curDice.down;
+            int l = curDice.left;
+            int r = curDice.right;
+            int b = curDice.bottom;
+
+            Dice nextDice;
+
+            if (dir == 0) {
+                nextDice = new Dice(l, u, d, b, t, r);
+            } else if (dir == 1) {
+                nextDice = new Dice(r, u, d, t, b, l);
+            } else if (dir == 2) {
+                nextDice = new Dice(d, t, b, l, r, u);
+            } else {
+                nextDice = new Dice(u, b, t, l, r, d);
+            }
+
+            int nx = x + dx[dir];
+            int ny = y + dy[dir];
+
+            if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
+                continue;
+            }
+
+            curDice = nextDice;
+            x = nx;
+            y = ny;
+
+            if (map[nx][ny] == 0) {
+                map[nx][ny] = dice[nextDice.bottom];
+            } else {
+                dice[nextDice.bottom] = map[nx][ny];
+                map[nx][ny] = 0;
+            }
+
+            System.out.println(dice[nextDice.top]);
+        }
+
+    }
+
+    static class Dice {
+        int top, up, down, left, right, bottom;
+
+        public Dice(int top, int up, int down, int left, int right, int bottom) {
+            this.top = top;
+            this.up = up;
+            this.down = down;
+            this.left = left;
+            this.right = right;
+            this.bottom = bottom;
+        }
     }
 }
