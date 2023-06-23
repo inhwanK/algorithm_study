@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 public class BOJ14890 {
     static int n, l;
     static int[][] map;
-    static boolean[][] runwayMap;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,162 +24,66 @@ public class BOJ14890 {
             }
         }
 
-        runwayMap = new boolean[n][n];
         int count = 0;
-        for (int row = 0; row < n; row++) {
-            if (rowCheck(row)) {
+        for (int i = 0; i < n; i++) {
+            if (calRow(i)) {
+                count++;
+            }
+            if (calCol(i)) {
                 count++;
             }
         }
 
-        runwayMap = new boolean[n][n];
-        for (int col = 0; col < n; col++) {
-            if (colCheck(col)) {
-                count++;
-            }
-        }
         System.out.println(count);
     }
 
-    private static boolean rowCheck(int row) {
-        int size = map.length;
-        int now = map[row][0];
-        for (int i = 1; i < size; i++) {
-            if (now != map[row][i]) {
-                if (!rowRunway(row, i)) {
-                    return false;
+    private static boolean calRow(int row) {
+        boolean[] runwayMap = new boolean[n];
+
+        for (int i = 0; i < n - 1; i++) {
+            int dis = map[row][i] - map[row][i + 1];
+            if (dis > 1 || dis < -1) {
+                return false;
+            } else if (dis == -1) {
+                for (int j = 0; j < l; j++) {
+                    if (i - j < 0 || runwayMap[i - j]) return false;
+                    if (map[row][i] != map[row][i - j]) return false;
+                    runwayMap[i - j] = true;
                 }
-                if (now > map[row][i]) {
-                    i += l - 1;
+            } else if (dis == 1) {
+                for (int j = 1; j <= l; j++) {
+                    if (i + j >= n || runwayMap[i + j]) return false;
+                    if (map[row][i] - 1 != map[row][i + j]) return false;
+                    runwayMap[i + j] = true;
                 }
             }
-            now = map[row][i];
         }
-
-        for (int i = 0; i < n; i++) {
-            System.out.print(map[row][i] + " ");
-        }
-        System.out.println();
 
         return true;
     }
 
-    private static boolean rowRunway(int row, int start) {
-        // 경사로 설치 위치가 범위를 초과하는지 여부
-        if (map[row][start] < map[row][start - 1]) {
-            if (start + l - 1 >= n) {
+    private static boolean calCol(int col) {
+        boolean[] runwayMap = new boolean[n];
+
+        for (int i = 0; i < n - 1; i++) {
+            int dis = map[i][col] - map[i + 1][col];
+            if (dis > 1 || dis < -1) {
                 return false;
-            }
-
-            int now = map[row][start];
-            for (int i = start; i < start + l; i++) {
-                if (now != map[row][i]) {
-                    return false;
+            } else if (dis == -1) {
+                for (int j = 0; j < l; j++) {
+                    if (i - j < 0 || runwayMap[i - j]) return false;
+                    if (map[i][col] != map[i - j][col]) return false;
+                    runwayMap[i - j] = true;
                 }
-                // 경사로 설치여부
-                if (runwayMap[row][i]) {
-                    return false;
+            } else if (dis == 1) {
+                for (int j = 1; j <= l; j++) {
+                    if (i + j >= n || runwayMap[i + j]) return false;
+                    if (map[i][col] - 1 != map[i + j][col]) return false;
+                    runwayMap[i + j] = true;
                 }
-                now = map[row][i];
-            }
-            // 경사로 설치
-            for (int i = start; i < start + l; i++) {
-                runwayMap[row][i] = true;
-            }
-
-        } else {
-
-            if (start - l < 0) {
-                return false;
-            }
-            // l 이 1인 경우
-            int now = map[row][start - 1];
-            for (int i = start - 2; i >= start - l; i--) {
-                if (now != map[row][i]) {
-                    return false;
-                }
-                // 경사로 설치여부
-                if (runwayMap[row][i]) {
-                    return false;
-                }
-                now = map[row][i];
-            }
-            // 경사로 설치
-            for (int i = start - 1; i >= start - l; i--) {
-                runwayMap[row][i] = true;
             }
         }
-        return true;
-    }
 
-    private static boolean colCheck(int col) {
-        int size = map.length;
-        int now = map[0][col];
-        for (int i = 1; i < size; i++) {
-            if (now != map[i][col]) {
-                if (!colRunway(col, i)) {
-                    return false;
-                }
-                if (now > map[i][col]) {
-                    i += l - 1;
-                }
-            }
-            now = map[i][col];
-        }
-
-        for (int i = 0; i < n; i++) {
-            System.out.print(map[i][col] + " ");
-        }
-        System.out.println();
-
-        return true;
-    }
-
-    private static boolean colRunway(int col, int start) {
-        // 경사로 설치 위치가 범위를 초과하는지 여부
-        if (map[start][col] < map[start - 1][col]) {
-            if (start + l - 1 >= n) {
-                return false;
-            }
-
-            int now = map[start][col];
-            for (int i = start; i < start + l; i++) {
-                if (now != map[i][col]) {
-                    return false;
-                }
-                // 경사로 설치여부
-                if (runwayMap[i][col]) {
-                    return false;
-                }
-                now = map[i][col];
-            }
-            // 경사로 설치
-            for (int i = start; i < start + l; i++) {
-                runwayMap[i][col] = true;
-            }
-
-        } else {
-
-            if (start - l < 0) {
-                return false;
-            }
-
-            int now = map[start - 1][col];
-            for (int i = start - 2; i >= start - l; i--) {
-                if (now != map[i][col]) {
-                    return false;
-                }
-                // 경사로 설치여부
-                if (runwayMap[i][col]) {
-                    return false;
-                }
-                now = map[i][col];
-            }
-            // 경사로 설치
-            for (int i = start - 1; i >= start - l; i--) {
-                runwayMap[i][col] = true;
-            }
-        }
         return true;
     }
 }
