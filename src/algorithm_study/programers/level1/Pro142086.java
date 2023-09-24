@@ -2,7 +2,7 @@ package algorithm_study.programers.level1;
 
 import java.util.*;
 
-// 가장 가까운 같은 글자 https://school.programmers.co.kr/learn/courses/30/lessons/142086?language=java
+// 가장 가까운 같은 글자 - https://school.programmers.co.kr/learn/courses/30/lessons/142086?language=java
 public class Pro142086 {
     public int[] solution(String s) {
         int[] answer = new int[s.length()];
