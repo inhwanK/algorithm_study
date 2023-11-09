@@ -39,3 +39,48 @@ public class Pro135807 {
         return answer;
     }
 }
+
+class Pro135807_2 {
+    // 유클리드 호제법
+    // every 메서드도 사용해보기?
+
+    // 가장 큰 양의 정수 a 값 구하는 것인데...
+    // 두 조건을 만족하는 것이 최대 공약수가 아닐 수도 있는데
+    // 유클리드 호제법 사용하는게 맞나?
+
+    // 아래 링크를 보면 맞음..
+    // https://school.programmers.co.kr/questions/40997
+    public int solution(int[] arrayA, int[] arrayB) {
+        int answer = 0;
+
+        int divA = 0;
+        int divB = 0;
+        for (int i = arrayA.length - 1; i >= 0; i--) {
+            divA = gcd(divA, arrayA[i]);
+            divB = gcd(divB, arrayB[i]);
+        }
+
+        int AA = divA;
+        int BB = divB;
+        for (int i = 0; i < arrayA.length; i++) {
+            if (arrayB[i] % divA == 0) {
+                AA = 0;
+            }
+
+            if (arrayA[i] % divB == 0) {
+                BB = 0;
+            }
+        }
+
+        return Math.max(AA, BB);
+    }
+
+
+    private int gcd(int a, int b) {
+        if (a % b == 0) {
+            return b;
+        }
+
+        return gcd(b, a % b);
+    }
+}
