@@ -2,12 +2,8 @@ package algorithm_study.programers.level2;
 
 import java.util.*;
 
+// 시소 짝꿍 - https://school.programmers.co.kr/learn/courses/30/lessons/152996
 public class Pro152996 {
-    public static void main(String[] args) {
-        int[] arr = {100,180,360,100,270};
-        solution(arr);
-    }
-
     public static long solution(int[] weights) {
         long answer = 0;
 
