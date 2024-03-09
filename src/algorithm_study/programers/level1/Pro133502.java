@@ -24,6 +24,7 @@ public class Pro133502 {
         return (ingredient.length - now) / 4;
     }
 
+    // 스택 활용
     public int solution2(int[] ingredient) {
         int result = 0;
         Stack<Integer> stack = new Stack<>();
@@ -44,5 +45,23 @@ public class Pro133502 {
             }
         }
         return result;
+    }
+
+    // 배열로 풀이
+    public int solution3(int[] ingredient) {
+        int[] stack = new int[ingredient.length];
+        int sp = 0;
+        int answer = 0;
+        for (int i : ingredient) {
+            stack[sp++] = i;
+            if (sp >= 4 && stack[sp - 1] == 1
+                    && stack[sp - 2] == 3
+                    && stack[sp - 3] == 2
+                    && stack[sp - 4] == 1) {
+                sp -= 4;
+                answer++;
+            }
+        }
+        return answer;
     }
 }
