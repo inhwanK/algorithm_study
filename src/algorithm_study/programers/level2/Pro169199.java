@@ -4,106 +4,97 @@ import java.util.*;
 
 // 리코쳇 로봇 - https://school.programmers.co.kr/learn/courses/30/lessons/169199
 public class Pro169199 {
-    class Solution {
-        public int solution(String[] board) {
-            int answer = 0;
+    public int solution(String[] board) {
+        int answer = 0;
 
-            char[][] target = new char[board.length][board[0].length()];
+        char[][] target = new char[board.length][board[0].length()];
 
-            int gx = 0;
-            int gy = 0;
-            int[] start = new int[2];
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[0].length(); j++) {
-                    target[i][j] = board[i].charAt(j);
-                    System.out.print(target[i][j] + " ");
-                    if (target[i][j] == 'G') {
-                        gx = i;
-                        gy = j;
-                        continue;
-                    }
-
-                    if (target[i][j] == 'R') {
-                        start[0] = i;
-                        start[1] = j;
-                    }
-
+        int gx = 0;
+        int gy = 0;
+        int[] start = new int[2];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length(); j++) {
+                target[i][j] = board[i].charAt(j);
+                if (target[i][j] == 'G') {
+                    gx = i;
+                    gy = j;
+                    continue;
                 }
-                System.out.println();
-            }
 
-
-            // 네 방향으로 슬라이딩 시도
-            // 슬라이딩 하면서 번호매기기
-            // 한번 슬라이딩 할 때마다 목적지 방문 여부 체크
-            // 그다음은 ?
-
-            boolean[][] visited = new boolean[board.length][board[0].length()];
-            answer = slide(gx, gy, start, target, visited);
-
-
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[0].length(); j++) {
-                    System.out.print(visited[i][j] + " ");
+                if (target[i][j] == 'R') {
+                    start[0] = i;
+                    start[1] = j;
                 }
-                System.out.println();
-            }
 
-            return answer;
+            }
         }
 
-        private int slide(int gx, int gy, int[] start, char[][] target, boolean[][] visited) {
-            int[] dx = {0, 1, 0, -1};
-            int[] dy = {1, 0, -1, 0};
+        boolean[][] visited = new boolean[board.length][board[0].length()];
+        answer = slide(gx, gy, start, target, visited);
 
-            Queue<int[]> que = new LinkedList();
-            que.add(start);
+        return answer;
+    }
 
-            int count = 1;
+    private int slide(int gx, int gy, int[] start, char[][] target, boolean[][] visited) {
+        int[] dx = {0, 1, 0, -1};
+        int[] dy = {1, 0, -1, 0};
 
-            while (!que.isEmpty()) {
-                int[] now = que.poll();
-                int x = now[0];
-                int y = now[1];
+        Queue<Point> que = new LinkedList();
+        que.add(new Point(start[0], start[1], 0));
+        visited[start[0]][start[1]] = true;
 
-                if (x == gx && y == gy) {
-                    return count;
-                }
+        while (!que.isEmpty()) {
+            Point now = que.poll();
+            int x = now.x;
+            int y = now.y;
 
-                for (int dir = 0; dir < 4; dir++) {
-                    int nx = x;
-                    int ny = y;
+            if (x == gx && y == gy) {
+                return now.count;
+            }
 
-                    boolean move = false;
+            for (int dir = 0; dir < 4; dir++) {
+                int nx = x;
+                int ny = y;
 
-                    while (true) {
-                        nx += dx[dir];
-                        ny += dy[dir];
+                boolean move = false;
 
-                        if (nx < 0 || nx >= target.length || ny < 0 || ny >= target[0].length ||
-                                target[nx][ny] == 'D') {
-                            if (move) {
-                                que.add(new int[]{nx - dx[dir], ny - dy[dir]});
-                                System.out.println((nx - dx[dir]) + ", " + (ny - dy[dir]));
-                                move = false;
-                            }
+                while (true) {
+                    nx += dx[dir];
+                    ny += dy[dir];
+
+                    if (nx < 0 || nx >= target.length || ny < 0 || ny >= target[0].length ||
+                            target[nx][ny] == 'D') {
+                        if (visited[nx - dx[dir]][ny - dy[dir]]) {
                             break;
                         }
 
-                        visited[nx][ny] = true;
-                        move = true;
+                        if (move) {
+                            que.add(new Point(nx - dx[dir], ny - dy[dir], now.count + 1));
+                            visited[nx - dx[dir]][ny - dy[dir]] = true;
+                            move = false;
+                        }
+
+                        break;
                     }
+
+                    move = true;
                 }
-
-                // if(visited[gx][gy]) {
-                //     return count;
-                // }
-
-                count++;
             }
+        }
 
 
-            return -1;
+        return -1;
+    }
+
+    class Point {
+        int x;
+        int y;
+        int count;
+
+        public Point(int x, int y, int count) {
+            this.x = x;
+            this.y = y;
+            this.count = count;
         }
     }
 
