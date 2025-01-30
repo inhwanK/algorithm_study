@@ -7,10 +7,73 @@ public class Leet208 {
 
 }
 
-class Trie {
+class TrieNode {
+    Map<Character, TrieNode> children;
+    boolean endOfCharacter;
+
+    public TrieNode() {
+        this.children = new HashMap<>();
+        this.endOfCharacter = false;
+    }
+}
+
+class Trie2 {
+    TrieNode root;
+
+    public Trie2() {
+        root = new TrieNode();
+    }
+
+    public void insert(String word) {
+        TrieNode node = root;
+        char[] w = word.toCharArray();
+        for (int i = 0; i < w.length; i++) {
+            char now = w[i];
+            if (!node.children.containsKey(now)) {
+                node.children.put(now, new TrieNode());
+                node = node.children.get(now);
+                continue;
+            }
+            node = node.children.get(now);
+        }
+        node.endOfCharacter = true;
+    }
+
+    public boolean search(String word) {
+        TrieNode node = root;
+        char[] w = word.toCharArray();
+        for (int i = 0; i < w.length; i++) {
+            char now = w[i];
+            if (node.children == null || !node.children.containsKey(now)) {
+                return false;
+            }
+            node = node.children.get(now);
+        }
+
+        return node.endOfCharacter;
+    }
+
+    // 1. startsWith 로직 먼저 고민하기
+    public boolean startsWith(String prefix) {
+        TrieNode node = root;
+        char[] w = prefix.toCharArray();
+        for (int i = 0; i < w.length; i++) {
+            char now = w[i];
+            if (node.children == null || !node.children.containsKey(now)) {
+                return false;
+            }
+            node = node.children.get(now);
+        }
+        return true;
+    }
+}
+
+
+// answer 1
+class Trie1 {
     private Map<String, List<String>> dataMap;
 
-    public Trie() {
+    public Trie1() {
         // Map<String, List<String>> 타입 선언
         dataMap = new HashMap<>();
     }
