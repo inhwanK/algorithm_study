@@ -17,7 +17,7 @@ public class Leet994 {
         int m = grid.length;
         int n = grid[0].length;
 
-        Queue<Node1> que = new LinkedList<>();
+        Queue<Node> que = new LinkedList<>();
         int result = -1;
         int freshCount = 0;
         int rottenCount = 0;
@@ -25,7 +25,7 @@ public class Leet994 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 2) {
-                    que.add(new Node1(i, j, 0));
+                    que.add(new Node(i, j, 0));
                     rottenCount++;
                 } else if (grid[i][j] == 1) {
                     freshCount++;
@@ -36,7 +36,7 @@ public class Leet994 {
 
         // rotten orange 기준으로 값을 바꿔나가기 - O(n)
         while (!que.isEmpty()) {
-            Node1 now = que.poll();
+            Node now = que.poll();
             result = now.index;
 
             int x = now.x;
@@ -59,7 +59,7 @@ public class Leet994 {
                 }
 
                 grid[nx][ny] = 2;
-                que.add(new Node1(nx, ny, now.index + 1));
+                que.add(new Node(nx, ny, now.index + 1));
                 freshCount--;
                 rottenCount++;
             }
