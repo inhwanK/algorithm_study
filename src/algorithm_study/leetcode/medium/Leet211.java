@@ -13,12 +13,12 @@ public class Leet211 {
 
     public void addWord(String word) {
         char[] wordArr = word.toCharArray();
-        Node1 node1 = root;
+        Node1 node = root;
         for(char c : wordArr) {
-            node1.children.putIfAbsent(c, new Node1());
-            node1 = node1.children.get(c);
+            node.children.putIfAbsent(c, new Node1());
+            node = node.children.get(c);
         }
-        node1.endOfWord = true;
+        node.endOfWord = true;
     }
 
     public boolean search(String word) {
@@ -27,23 +27,23 @@ public class Leet211 {
     }
 
 
-    private boolean dfs(Node1 node1, char[] wordArr, int index) {
+    private boolean dfs(Node1 node, char[] wordArr, int index) {
         if(wordArr.length <= index) {
-            return node1.endOfWord;
+            return node.endOfWord;
         }
 
         if(wordArr[index] == '.') {
-            for(Node1 now : node1.children.values()) {
+            for(Node1 now : node.children.values()) {
                 if(dfs(now, wordArr, index + 1)) {
                     return true;
                 }
             }
             return false;
         } else {
-            if(!node1.children.containsKey(wordArr[index])) {
+            if(!node.children.containsKey(wordArr[index])) {
                 return false;
             }
-            return dfs(node1.children.get(wordArr[index]), wordArr, index + 1);
+            return dfs(node.children.get(wordArr[index]), wordArr, index + 1);
         }
     }
 }
