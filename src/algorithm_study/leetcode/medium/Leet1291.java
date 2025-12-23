@@ -8,7 +8,7 @@ public class Leet1291 {
     public List<Integer> sequentialDigits(int low, int high) {
         List<Integer> result = new ArrayList<>();
         String target = "123456789";
-        
+
         for (int len = 1; len <= 9; len++) {
             for (int i = 0; i + len <= 9; i++) {
                 int t = Integer.parseInt(target.substring(i, i + len));
