@@ -36,4 +36,28 @@ public class Leet2196 {
 
         return map.get(resultKey);
     }
+
+    public TreeNode createBinaryTree2(int[][] descriptions) {
+        Map<Integer, TreeNode> nodes = new HashMap<>();
+        Set<Integer> parents = new HashSet<>();
+        Set<Integer> children = new HashSet<>();
+
+        for (int[] d : descriptions) {
+            int p = d[0], c = d[1], isLeft = d[2];
+
+            TreeNode parent = nodes.computeIfAbsent(p, TreeNode::new);
+            TreeNode child  = nodes.computeIfAbsent(c, TreeNode::new);
+
+            if (isLeft == 1) parent.left = child;
+            else parent.right = child;
+
+            parents.add(p);
+            children.add(c);
+        }
+
+        // root = parent에만 있고 child에는 없는 값
+        parents.removeAll(children);
+        int rootVal = parents.iterator().next();
+        return nodes.get(rootVal);
+    }
 }
